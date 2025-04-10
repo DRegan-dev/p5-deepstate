@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'home',
 
     # Optional -- requires install using `django-allauth[socialaccount]`.
     'allauth.socialaccount',
@@ -62,7 +63,11 @@ ROOT_URLCONF = 'deep_state.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
