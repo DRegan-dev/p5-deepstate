@@ -1,6 +1,52 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col-12"></div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
-<h2 class="display-4 text-success">Here it is!</h2>
+    <div class="hero-container d-flex flex-column">
+        <!--Floating Background image -->
+        <div class="floating-images"></div>
+        <!-- Top Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark py-3 position-fixed top-0 w-100" style="z-index: 999;">
+            <div class="container-fluid px-4">
+                <!-- Logo/Brand Name -->
+                <a href="{% url 'home' %}" class="navbar-brand">
+                    <i class="fa-solid fa-circle-nodes"></i>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Nav Links -->
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item mx-2">
+                            <a href="#" class="nav-link"></a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a href="#" class="nav-link"></a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a href="#" class="nav-link"></a>
+                        </li>
+                    </ul>
+
+                    <!-- Auth Buttons -->
+                     <div class="d-flex">
+                        <a href="#" class="btn btn-outline-light rounded-pill px-4 me-2"></a>
+                        <a href="#" class="btn btn-light rounded-pill px-4 text-dark"></a>
+                     </div>
+                </div>
+            </div>
+        </nav>
+    </div>
 {% endblock %}
