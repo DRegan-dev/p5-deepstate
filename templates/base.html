@@ -42,7 +42,17 @@
         </div>
 
         <!-- Central Navigation Links -->
-         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+            <form action="" method="get">
+                <div class="input-group w-100">
+                    <input type="text" class="form-control border border-dark rounded-0" name="q" placeholder="Search items...">
+                    <button class="btn btn-dark border border-dark rounded-0" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
             <ul class="list-inline list-unstyled text-center my-0">
                 <li class="list-inline-item mx-3">
                     <a href="#" class="text-white nav-link">Link 1</a>
@@ -54,10 +64,11 @@
                     <a href="#" class="text-white nav-link">Link 3</a>
                 </li>
             </ul>
-         </div>
+        </div>
+        
 
          <!-- Auth Buttons -->
-          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
             <ul class="list-inline list-unstyled text-center text-lg-end my-0">
                 <li class="list-inline-item">
                     <a href="{% url 'account_login' %}" class="btn btn-outline-light rounded-pill px-4 me-2">Log In</a>
@@ -66,10 +77,10 @@
                     <a href="{% url 'account_signup' %}" class="btn btn-light rounded-pill px-4 me-2 text-dark">Sign up</a>
                 </li>
             </ul>
-          </div>
+        </div>
 
           <!-- Mobile Navigation Toggle -->
-           <div class="d-lg-none position-absolute top-0 end-0 p-3">
+            <div class="d-lg-none position-absolute top-0 end-0 p-3">
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
                     <i class="fas fa-bars text-white fa-lg"></i>
                 </button>
