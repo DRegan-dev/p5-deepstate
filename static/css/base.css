@@ -83,4 +83,21 @@ header .btn-light:hover {
     background-color: e0e0e0;
 }
 
-/* Nav links styling */
+/* Nav links styling base.html */
+.nav-link {
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* Mobile Navigation Toggle (mobile only) */
+.mobile-toggle button {
+    background: transparent;
+}
+
+/* Mobile Menu (Offcanvas) */
+.offcanvas {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+}
