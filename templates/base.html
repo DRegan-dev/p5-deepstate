@@ -1,128 +1,110 @@
 {% load static %}
-
 <!doctype html>
 <html lang="en">
-  <head>
-
-    {% block meta %}
-    <meta http-equiv="'X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% endblock %}
-
-    {% block extra_meta %}
-    {% endblock %}
-
-    {% block corecss %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% endblock %}
-
-    {% block extra_css %}
-    {% endblock %}
-
-    {% block corejs %}
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/5125eaa352.js" crossorigin="anonymous"></script>
-    {% endblock %}
-
-    {% block extra_js %}
-    {% endblock %}
-  </head>
-    <title>DeepState {% block extra_title %}{% endblock %}</title>
-  </head>
-  <body>
-    <header class="container-fluid fixed-top" style="background: transparent; padding: 1rem 0;">
-        <!-- Logo Section -->
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
-            <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                <span class="logo-font text-white"><i class="fa-solid fa-circle-notch"></i></span>
-            </a>
-        </div>
-
-        <!-- Central Navigation Links -->
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-            <form action="" method="get">
-                <div class="input-group w-100">
-                    <input type="text" class="form-control border border-dark rounded-0" name="q" placeholder="Search items...">
-                    <button class="btn btn-dark border border-dark rounded-0" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
+    <head>
+        {% block meta %}
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% endblock %}
+        {% block extra_meta %}
+        {% endblock %}
+        {% block corecss %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% endblock %}
+        {% block extra_css %}
+        {% endblock %}
+        {% block corejs %}
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/5125eaa352.js" crossorigin="anonymous"></script>
+        {% endblock %}
+        {% block extra_js %}
+        {% endblock %}
+        <title>DeepState {% block extra_title %}{% endblock %}</title>
+    </head>
+    <body>
+        {% with user_authenticated=request.user.is_authenticated is_super_user=request.user.is_superuser %}
+        <header class="container-fluid fixed-top" style="background: transparent; padding: 1rem 0;">
+            <div class="row"></div>
+                <!-- Logo Section -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <span class="logo-font text-white"><i class="fa-solid fa-circle-notch"></i>DeepState</span>
+                    </a>
                 </div>
-            </form>
-        </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-            <ul class="list-inline list-unstyled text-center my-0">
-                <li class="list-inline-item mx-3">
-                    <a href="#" class="text-white nav-link">Link 1</a>
-                </li>
-                <li class="list-inline-item mx-3">
-                    <a href="#" class="text-white nav-link">Link 2</a>
-                </li>
-                <li class="list-inline-item mx-3">
-                    <a href="#" class="text-white nav-link">Link 3</a>
-                </li>
-            </ul>
-        </div>
-        
-
-         <!-- Auth Buttons -->
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-            <ul class="list-inline list-unstyled text-center text-lg-end my-0">
-                <li class="list-inline-item">
-                    <a href="{% url 'account_login' %}" class="btn btn-outline-light rounded-pill px-4 me-2">Log In</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="{% url 'account_signup' %}" class="btn btn-light rounded-pill px-4 me-2 text-dark">Sign up</a>
-                </li>
-            </ul>
-        </div>
-
-          <!-- Mobile Navigation Toggle -->
-            <div class="d-lg-none position-absolute top-0 end-0 p-3">
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-                    <i class="fas fa-bars text-white fa-lg"></i>
-                </button>
-
-                <div class="offcanvas offcanvas-end bg-black text-white" tabindex="-1" id="mobileMenu">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title">DeepState</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <!-- Main Navigation and User Controls -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <div class="main-nav">
+                        <!-- Search form -->
+                        <form action="" method="get" class="mx-3 search-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control border border-dark rounded-0" name="q" placeholder="Search items...">
+                                <button class="btn btn-dark border border-dark rounded-0" type="submit">
+                                <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <!-- User Account & Shopping Bag -->
+                        <div class="text-end">
+                            {% if user.is_authenticated %}
+                            <div class="dropdown d-inline-block me-2">
+                                <a href="#" class="text-white nav-link" id="user-options" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="text-center">
+                                        <div><i class="fas fa-user fa-lg"></i></div>
+                                        <p class="my-0">Account</p>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu border-0" aria-labelledby="user-options">
+                                    {% if user.is_superuser %}
+                                    <li><a href="" class="dropdown-item">Product Management</a></li>
+                                    {% endif %}
+                                    <li><a href="" class="dropdown-item">Profile</a></li>
+                                    <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
+                                </ul>
+                            </div>
+                            <!-- Shopping Bag -->
+                            <div class="d-inline-block">
+                                <a href="" class="{% if grand_total %}text-info fw-bold{% else %}text-white{% endif %} nav-link">
+                                    <div class="text-center">
+                                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                        <p class="my-0">
+                                            {% if grand_total %}
+                                                ${{ grand_total|floatformat:2 }}
+                                            {% else %}
+                                                $0.00
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            {% else %}
+                            <!-- Login/Register Buttons-->
+                            <a href="{% url 'account_login' %}" class="btn btn-outline-light rounded-pill px-4 me-2">Log In</a>
+                            <a href="{% url 'account_signup' %}" class="btn btn-light rounded-pill px-4 text-dark">Sign Up</a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Link 1</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Link 2</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Link 3</a>
-                            </li>
-                            <li class="nav-item mt-4">
-                                <a href="#" class="nav-link btn btn-outline-light rounded-pill text-center">Log In</a>
-                            </li>
-                            <li class="nav-item mt-4">
-                                <a href="#" class="nav-link btn btn-light rounded-pill text-center text-dark">Log In</a>
-                            </li>
-                        </ul>
+                    <!-- Mobile Navigation Toggle -->
+                    <div class="mobile-toggle text-end">
+                        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                            <i class="fas fa-bars text-white fa-lg"></i>
+                        </button>
                     </div>
                 </div>
-           </div>
-    </header>
-    {% if messages %}
-    <div class="message-container"></div>
-    {% endif %}
-
-    {% block page_header %}
-    {% endblock %}
-
-    {% block content %}
-    {% endblock %}
-
-    {% block postload.js %}
-    {% endblock %}
-  </body>
+                <!--Mobile Menu (Offcanvas) -->
+                
+            
+      </header>
+      {% if messages %}
+      <div class="message-container"></div>
+      {% endif %}
+      {% block page_header %}
+      {% endblock %}
+      {% block content %}
+      {% endblock %}
+      {% block postload.js %}
+      {% endblock %}
+   </body>
 </html>
