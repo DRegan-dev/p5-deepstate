@@ -27,7 +27,7 @@
     <body>
         {% with user_authenticated=request.user.is_authenticated is_super_user=request.user.is_superuser %}
         <header class="container-fluid fixed-top" style="background: transparent; padding: 1rem 0;">
-            <div class="row"></div>
+            <div class="row">
                 <!-- Logo Section -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link">
@@ -94,17 +94,75 @@
                     </div>
                 </div>
                 <!--Mobile Menu (Offcanvas) -->
-                
-            
-      </header>
-      {% if messages %}
-      <div class="message-container"></div>
-      {% endif %}
-      {% block page_header %}
-      {% endblock %}
-      {% block content %}
-      {% endblock %}
-      {% block postload.js %}
-      {% endblock %}
-   </body>
+                <div class="offcanvas offcanvas-end bg-black text-white" tabindex="-1" id="mobileMenu">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">DeepState</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <!--Mobile Search Form -->
+                        <form method="get" action="" class="mb-4 search-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control border border-light rounded-0" name="q" placeholder="Search Items...">
+                                <button class="btn btn-light border border-light rounded-0" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <!--Mobile User Options -->
+                        <ul class="navbar-nav">
+                            {% if user_authenticated %}
+                                <li class="nav-item">
+                                    <h6 class="text-light">My Account</h6>
+                                </li>
+                                {% if is_superuser %}
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">Product Management</a>
+                                </li>
+                                {% endif %}
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">My Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
+                                </li>
+                                <li class="nav-item mt-3">
+                                    <a href="" class="nav-link">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-shopping-bag me-2"></i>
+                                            <span>
+                                                {% if grand_total %}
+                                                    ${{ grand_total|floatformat:2 }}
+                                                {% else %}
+                                                    $0.00
+                                                {% endif %}
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="{% url 'account_login' %}" class="nav-link btn btn-outline-light rounded-pill text-center">Log In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'account_signup' %}" class="nav-link btn btn-light rounded-pill text-center text-dark">Sign Up</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div> 
+            </div>         
+        </header>
+        {% endwith %}
+
+        {% if messages %}
+        <div class="message-container"></div>
+        {% endif %}
+        {% block page_header %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+        {% block postload.js %}
+        {% endblock %}
+    </body>
 </html>
