@@ -1,8 +1,27 @@
 /* Global page styling */
+html {
+    height: 100%;
+}
 body {
+    background: url(/media/pexels-blaque-x-background-image-2.jpg) no-repeat center center fixed;
+    background-size: cover;
     background-color: #000;
+    height: calc(100vh - 164px);
     color: #fff;
     position: relative;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    text-transform: uppercase;
 }
 
 /* Header - Main container */
@@ -13,10 +32,8 @@ header.container-fluid {
 }
 
 /* Logo Section */
-.main-logo-link .logo-link {
-    font-size: 1.8rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+.main-logo-link {
+    width: fit-content;
 }
 
 /* Main Navigation and User Control */
@@ -24,14 +41,10 @@ header.container-fluid {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: fit-content;
 }
 
 /* Search form */
-.search-form {
-    flex-grow: 1;
-    max-width: 400px;
-    margin: 0 auto;
-}
 
 .search-form .form-control {
     background-color: rgba(255, 255, 255, 0.1);
@@ -64,25 +77,6 @@ header.container-fluid {
     color: white;
 }
 
-/* Login/Register Buttons */
-header .btn-outline-light {
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: all 0.3s ease;
-}
-
-header .btn-outline-light:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-header .btn-light {
-    background-color: white;
-    transition: all 0.3 ease;
-}
-
-header .btn-light:hover {
-    background-color: e0e0e0;
-}
-
 /* Nav links styling base.html */
 .nav-link {
     transition: opacity 0.3s ease;
@@ -92,35 +86,33 @@ header .btn-light:hover {
     opacity: 0.8;
 }
 
-/* Mobile Navigation Toggle (mobile only) */
-.mobile-toggle button {
-    background: transparent;
+/* Bootstrap button overides */
+
+.btn-dark {
+    background-color: #212529;
+    border-color: #212529;
+    transition: all 0.3 ease;
 }
 
-/* Mobile Menu (Offcanvas) */
-.offcanvas {
-    background-color: rgba(0, 0, 0, 0.95) !important;
+.btn-dark:hover {
+    background-color: #000;
+    border-color: #000;
+}
+
+.btn-outline-dark:hover {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 /* Responsove styles */
 /* Desktop styles (hiding mobile styles)*/
-@media (min-width: 993px) {
-    .mobile-toggle {
-        display: none !important;
-    }
-}
-
-/* Mobile styles */
-@media (max-width: 992px) {
-    .main-logo-link .logo-font {
-        font-size: 1.5rem;
-    }
-
-    .main-nav {
-        display: none;
-    }
-
-    .mobile-toggle {
-        display: block !important;
+@media (min-width: 992px) {
+    .header-container {
+        padding-top: 110px;
     }
 }

@@ -13,13 +13,16 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
         <link rel="stylesheet" href="../static/css/base.css">
         {% endblock %}
+
         {% block extra_css %}
         {% endblock %}
+
         {% block corejs %}
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/5125eaa352.js" crossorigin="anonymous"></script>
         {% endblock %}
+
         {% block extra_js %}
         {% endblock %}
         <title>DeepState {% block extra_title %}{% endblock %}</title>
@@ -27,131 +30,80 @@
     <body>
         {% with user_authenticated=request.user.is_authenticated is_super_user=request.user.is_superuser %}
         <header class="container-fluid fixed-top" style="background: transparent; padding: 1rem 0;">
-            <div class="row">
+            <div id="topnav" class="row py-lg-2 d-none d-lg-flex">
                 <!-- Logo Section -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <span class="logo-font text-white"><i class="fa-solid fa-circle-notch"></i>DeepState</span>
+                    <span class="logo-font text-white my-0"><h2>Deep<strong>State</strong></h2></span>
                     </a>
                 </div>
                 <!-- Main Navigation and User Controls -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                    <div class="main-nav">
-                        <!-- Search form -->
-                        <form action="" method="get" class="mx-3 search-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control border border-dark rounded-0" name="q" placeholder="Search items...">
-                                <button class="btn btn-dark border border-dark rounded-0" type="submit">
-                                <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </form>
-                        <!-- User Account & Shopping Bag -->
-                        <div class="text-end">
-                            {% if user.is_authenticated %}
-                            <div class="dropdown d-inline-block me-2">
-                                <a href="#" class="text-white nav-link" id="user-options" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div class="text-center">
-                                        <div><i class="fas fa-user fa-lg"></i></div>
-                                        <p class="my-0">Account</p>
-                                    </div>
-                                </a>
-                                <ul class="dropdown-menu border-0" aria-labelledby="user-options">
-                                    {% if user.is_superuser %}
-                                    <li><a href="" class="dropdown-item">Product Management</a></li>
-                                    {% endif %}
-                                    <li><a href="" class="dropdown-item">Profile</a></li>
-                                    <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
-                                </ul>
-                            </div>
-                            <!-- Shopping Bag -->
-                            <div class="d-inline-block">
-                                <a href="" class="{% if grand_total %}text-info fw-bold{% else %}text-white{% endif %} nav-link">
-                                    <div class="text-center">
-                                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                        <p class="my-0">
-                                            {% if grand_total %}
-                                                ${{ grand_total|floatformat:2 }}
-                                            {% else %}
-                                                $0.00
-                                            {% endif %}
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            {% else %}
-                            <!-- Login/Register Buttons-->
-                            <a href="{% url 'account_login' %}" class="btn btn-outline-light rounded-pill px-4 me-2">Log In</a>
-                            <a href="{% url 'account_signup' %}" class="btn btn-light rounded-pill px-4 text-dark">Sign Up</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <!-- Mobile Navigation Toggle -->
-                    <div class="mobile-toggle text-end">
-                        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-                            <i class="fas fa-bars text-white fa-lg"></i>
-                        </button>
-                    </div>
-                </div>
-                <!--Mobile Menu (Offcanvas) -->
-                <div class="offcanvas offcanvas-end bg-black text-white" tabindex="-1" id="mobileMenu">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title">DeepState</h5>
-                        <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <!--Mobile Search Form -->
-                        <form method="get" action="" class="mb-4 search-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control border border-light rounded-0" name="q" placeholder="Search Items...">
-                                <button class="btn btn-light border border-light rounded-0" type="submit">
+                    <!-- Search form -->
+                    <form action="" method="get">
+                        <div class="input-group w-100">
+                            <input type="text" class="form-control border border-dark rounded-0" name="q" placeholder="Search items...">
+                            <button class="btn btn-dark border border-dark rounded-0" type="submit">
+                                <span class="icon">
                                     <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </form>
-                        <!--Mobile User Options -->
-                        <ul class="navbar-nav">
-                            {% if user_authenticated %}
-                                <li class="nav-item">
-                                    <h6 class="text-light">My Account</h6>
-                                </li>
-                                {% if is_superuser %}
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">Product Management</a>
-                                </li>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                        <!-- User Account & Shopping Bag -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <ul class="list-inline list-unstyled text-center text-lg-end my-0">
+                        <li class="list-inline-item dropdown">
+                            <a href="#" class="text-dark nav-link" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div><i class="fas fa-user fa-lg"></i></div>
+                                    <p class="my-0">My Account</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                {% if user.is_authenticated %}
+                                    {% if user.is_superuser %}
+                                        <a href="" class="dropdown-item">Product Management</a>
+                                    {% endif %}
+                                    <a href="" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                                 {% endif %}
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">My Profile</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
-                                </li>
-                                <li class="nav-item mt-3">
-                                    <a href="" class="nav-link">
-                                        <div class="d-flex align-items-center">
-                                            <i class="fas fa-shopping-bag me-2"></i>
-                                            <span>
-                                                {% if grand_total %}
-                                                    ${{ grand_total|floatformat:2 }}
-                                                {% else %}
-                                                    $0.00
-                                                {% endif %}
-                                            </span>
-                                        </div>
-                                    </a>
-                                </li>
-                            {% else %}
-                                <li class="nav-item">
-                                    <a href="{% url 'account_login' %}" class="nav-link btn btn-outline-light rounded-pill text-center">Log In</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{% url 'account_signup' %}" class="nav-link btn btn-light rounded-pill text-center text-dark">Sign Up</a>
-                                </li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div> 
-            </div>         
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="" class="{% if grand_total %}text-info fw-bold{% else %}text-white{% endif %} nav-link">
+                                <div class="text-center">
+                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <p class="my-0">
+                                        {% if grand_total %}
+                                            ${{ grand_total|floatformat:2 }}
+                                        {% else %}
+                                            $0.00
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </a>    
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            <div class="row bg-white">
+                <nav class="navbar navbar-expand-lg navbar-dark w-100">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" 
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+            </div> 
+            <div id="delivery-banner" class="row text-center">
+                <div class="col bg-black text-white">
+                    <h4 class="logo-font my-1">Grab free shipping on orders over {{free_delivery_minimum}}!</h4>
+                </div>
+            </div> 
         </header>
         {% endwith %}
 
