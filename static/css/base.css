@@ -86,6 +86,21 @@ header.container-fluid {
     opacity: 0.8;
 }
 
+/* Shop now button */
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+    border: 1px solid white;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background: #222;
+    color: white;
+}
+
 /* Bootstrap button overides */
 
 .btn-dark {
