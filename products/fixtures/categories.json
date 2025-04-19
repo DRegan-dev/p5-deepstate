@@ -1,0 +1,59 @@
+[
+    {
+      "pk": 1,
+      "model": "products.category",
+      "fields": {
+        "name": "Adventure",
+        "description": "Gear and apparel designed for outdoor exploration, including hiking, camping, and survival essentials."
+      }
+    },
+    {
+      "pk": 2,
+      "model": "products.category",
+      "fields": {
+        "name": "Shoes",
+        "description": "Performance footwear for hiking, trekking, climbing, and everyday outdoor use."
+      }
+    },
+    {
+      "pk": 3,
+      "model": "products.category",
+      "fields": {
+        "name": "Activewear",
+        "description": "Functional and comfortable apparel for training, movement, and athletic performance."
+      }
+    },
+    {
+      "pk": 4,
+      "model": "products.category",
+      "fields": {
+        "name": "Trousers",
+        "description": "Durable and comfortable trousers for outdoor activities, work, or casual wear."
+      }
+    },
+    {
+      "pk": 5,
+      "model": "products.category",
+      "fields": {
+        "name": "Sweaters",
+        "description": "Warm and stylish sweaters designed for layering in cool weather."
+      }
+    },
+    {
+      "pk": 6,
+      "model": "products.category",
+      "fields": {
+        "name": "New Arrivals",
+        "description": "Fresh drops and the latest gear—just in. Explore our newest products for every adventure."
+      }
+    },
+    {
+      "pk": 7,
+      "model": "products.category",
+      "fields": {
+        "name": "Clearance",
+        "description": "Great deals on last-chance gear. Limited stock, big savings on your favorite styles."
+      }
+    }
+  ]
+  
