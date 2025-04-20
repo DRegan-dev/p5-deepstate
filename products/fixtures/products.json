@@ -9,8 +9,8 @@
       "description": "Lightweight beige outdoor training shoes with breathable cutout design. Features durable rubber outsole and elastic lacing system for easy wear and comfort during workouts or outdoor activities.",
       "price": 49.99,
       "rating": 4.6,
-      "image_url": "beige_training_shoes.jpg",
-      "image": "beige_training_shoes.jpg"
+      "image_url": "aw001.jpg",
+      "image": "aw001.jpg"
     }
   },
   {
@@ -23,8 +23,8 @@
       "description": "Clear waterproof smartphone case with lanyard. Perfect for protecting your device during water activities, beach trips, or outdoor adventures. Features touch-sensitive material that allows full functionality while keeping your phone dry and secure.",
       "price": 15.99,
       "rating": 4.8,
-      "image_url": "waterproof_phone_case.jpg",
-      "image": "waterproof_phone_case.jpg"
+      "image_url": "aw002.jpg",
+      "image": "aw002.jpg"
     }
   },
   {
@@ -37,8 +37,8 @@
       "description": "High-waisted red cargo athletic shorts with drawstring closure and zippered pockets. Made from breathable, lightweight material perfect for workouts, running, or casual wear. Features elastic waistband for comfortable fit.",
       "price": 29.99,
       "rating": 4.7,
-      "image_url": "red_cargo_shorts.jpg",
-      "image": "red_cargo_shorts.jpg"
+      "image_url": "aw003.jpg",
+      "image": "aw003.jpg"
     }
   },
   {
@@ -51,8 +51,8 @@
       "description": "Trendy colorblock corduroy jacket featuring green, brown and cream panels. Oversized fit with button closure, multiple pockets and frayed hem detail. Perfect for layering over workout clothes or casual outfits in cooler weather.",
       "price": 59.99,
       "rating": 4.5,
-      "image_url": "colorblock_corduroy_jacket.jpg",
-      "image": "colorblock_corduroy_jacket.jpg"
+      "image_url": "aw004.jpg",
+      "image": "aw004.jpg"
     }
   },
   {
@@ -65,8 +65,8 @@
       "description": "Durable grey hiking sandals with protective toe cap and cushioned footbed. Features quick-dry lining, adjustable straps, and rugged outsole perfect for hiking, water activities, or everyday outdoor wear. Available in size 40 and other sizes.",
       "price": 45.99,
       "rating": 4.9,
-      "image_url": "grey_hiking_sandals.jpg",
-      "image": "grey_hiking_sandals.jpg"
+      "image_url": "aw005.jpg",
+      "image": "aw005.jpg"
     }
   },
   {
@@ -79,8 +79,8 @@
       "description": "Cozy army green fleece vest with high collar and full zipper closure. Features hand pockets and sleeveless design perfect for layering over long-sleeve tops. Ideal for outdoor activities, casual wear, or as an additional layer for warmth.",
       "price": 39.99,
       "rating": 4.7,
-      "image_url": "green_fleece_vest.jpg",
-      "image": "green_fleece_vest.jpg"
+      "image_url": "aw006.jpg",
+      "image": "aw006.jpg"
     }
   },
   {
@@ -93,8 +93,8 @@
       "description": "Durable black hiking boots with pink accents. Features high-top ankle support, rugged tread pattern, water-resistant materials, and cushioned insole. Perfect for trail hiking, outdoor adventures, and all-terrain walking.",
       "price": 65.99,
       "rating": 4.8,
-      "image_url": "black_pink_hiking_boots.jpg",
-      "image": "black_pink_hiking_boots.jpg"
+      "image_url": "aw007.jpg",
+      "image": "aw007.jpg"
     }
   },
   {
@@ -107,8 +107,8 @@
       "description": "Military green outdoor hiking shoes with 'SPORT' branding and durable lace-up design. Features padded collar, grippy rubber outsole, and water-resistant exterior. Perfect for trail walking, outdoor activities, and casual wear.",
       "price": 54.99,
       "rating": 4.6,
-      "image_url": "olive_green_hiking_shoes.jpg",
-      "image": "olive_green_hiking_shoes.jpg"
+      "image_url": "aw008.jpg",
+      "image": "aw002.jpg"
     }
   },
   {
@@ -121,8 +121,8 @@
       "description": "Set of 7 wide athletic headbands in various colors and patterns. Made of stretchy, moisture-wicking fabric perfect for keeping hair back during workouts. Available in blue, green, multicolor, red, black, and pink variations. Comfortable fit for all-day wear.",
       "price": 19.99,
       "rating": 4.7,
-      "image_url": "workout_headbands_set.jpg",
-      "image": "workout_headbands_set.jpg"
+      "image_url": "aw009.jpg",
+      "image": "aw009.jpg"
     }
   },
   {
@@ -135,8 +135,8 @@
       "description": "High-waisted mint green athletic leggings with side pocket and contoured panels. Made from stretchy, moisture-wicking fabric perfect for hiking, gym workouts, or casual wear. Features a comfortable waistband and flattering fit.",
       "price": 34.99,
       "rating": 4.8,
-      "image_url": "mint_green_leggings.jpg",
-      "image": "mint_green_leggings.jpg"
+      "image_url": "aw010.jpg",
+      "image": "aw010.jpg"
     }
   },
   {
@@ -149,8 +149,8 @@
       "description": "Relaxed fit gray cargo pants with multiple utility pockets and button closure. Features durable cotton material perfect for outdoor activities or urban streetwear. Can be styled high-waisted or low-rise for versatile looks.",
       "price": 42.99,
       "rating": 4.5,
-      "image_url": "gray_cargo_pants.jpg",
-      "image": "gray_cargo_pants.jpg"
+      "image_url": "aw011.jpg",
+      "image": "aw011.jpg"
     }
   },
   {
@@ -163,8 +163,8 @@
       "description": "Black cargo jogger pants with multiple utility pockets and gold accent tags. Features drawstring waist, elastic ankle cuffs, and lightweight tactical design. Perfect for urban adventures, casual wear, or stylish athleisure outfits.",
       "price": 37.99,
       "rating": 4.7,
-      "image_url": "black_tactical_joggers.jpg",
-      "image": "black_tactical_joggers.jpg"
+      "image_url": "aw012.jpg",
+      "image": "aw012.jpg"
     }
   },
   {
@@ -177,8 +177,8 @@
       "description": "Lightweight packable bucket hat with carabiner clip for easy carrying. Available in six colors: beige, pink, olive green, gray, navy blue, and black. Features a foldable design that compresses into a compact circle when not in use. Perfect for hiking, fishing, or beach days.",
       "price": 22.99,
       "rating": 4.6,
-      "image_url": "packable_bucket_hat.jpg",
-      "image": "packable_bucket_hat.jpg"
+      "image_url": "aw013.jpg",
+      "image": "aw013.jpg"
     }
   },
   {
@@ -191,8 +191,8 @@
       "description": "Cozy gray and blue striped fleece pullover with half-zip design. Features textured pattern, relaxed fit, and collar detail. Perfect for casual streetwear, layering over basic tops, or staying warm during outdoor activities.",
       "price": 45.99,
       "rating": 4.6,
-      "image_url": "gray_striped_pullover.jpg",
-      "image": "gray_striped_pullover.jpg"
+      "image_url": "aw015.jpg",
+      "image": "aw015.jpg"
     }
   },
   {
@@ -205,8 +205,8 @@
       "description": "Durable black tactical cargo pants with multiple utility pockets and straight-leg design. Features belt loops and rugged construction. Shown paired with beige military-style boots for complete outdoor adventure look.",
       "price": 44.99,
       "rating": 4.7,
-      "image_url": "tactical_cargo_pants_boots.jpg",
-      "image": "tactical_cargo_pants_boots.jpg"
+      "image_url": "aw016.jpg",
+      "image": "aw016.jpg"
     }
   },
   {
@@ -219,8 +219,8 @@
       "description": "Comfortable black cargo joggers with side utility pockets and drawstring waist. Features elastic ankle cuffs and relaxed fit through the leg. Perfect for urban streetwear, casual outings, or athletic-inspired fashion looks.",
       "price": 36.99,
       "rating": 4.8,
-      "image_url": "black_cargo_joggers.jpg",
-      "image": "black_cargo_joggers.jpg"
+      "image_url": "aw017.jpg",
+      "image": "aw017.jpg"
     }
   },
   {
@@ -233,8 +233,8 @@
       "description": "High-end black techwear cargo pants with multiple zippered pockets and utility features. Features drawcord details, elastic ankle cuffs, and modern tactical design. Perfect for urban exploration, streetwear fashion, or functional everyday wear.",
       "price": 59.99,
       "rating": 4.9,
-      "image_url": "techwear_cargo_pants.jpg",
-      "image": "techwear_cargo_pants.jpg"
+      "image_url": "aw018.jpg",
+      "image": "aw018.jpg"
     }
   },
   {
@@ -247,8 +247,8 @@
       "description": "Sage green packable sleeping bag with matching stuff sack from Naturehike. Features quilted design with vertical baffles, soft gray lining, and decorative zigzag pattern along one edge. Lightweight and compact, perfect for camping, hiking, and outdoor adventures. Includes compression stuff sack for easy transport.",
       "price": 69.99,
       "rating": 4.7,
-      "image_url": "naturehike_green_sleeping_bag.jpg",
-      "image": "naturehike_green_sleeping_bag.jpg"
+      "image_url": "aw019.jpg",
+      "image": "aw019.jpg"
     }
   },
   {
@@ -261,8 +261,8 @@
       "description": "Premium Naturehike sleeping bag available in two shades of gray (light gray and silver-gray). Features rectangular mummy-style design with a fold-over flap at the top, horizontal quilted baffles, and ultra-soft inner lining. Ideal for camping, backpacking, and outdoor overnight stays. Includes Naturehike branding on bottom corner.",
       "price": 79.99,
       "rating": 4.8,
-      "image_url": "naturehike_gray_sleeping_bags.jpg",
-      "image": "naturehike_gray_sleeping_bags.jpg"
+      "image_url": "aw020.jpg",
+      "image": "aw020.jpg"
     }
   },
   {
@@ -275,8 +275,8 @@
       "description": "Stylish button-up fleece jacket featuring a distinctive southwestern/tribal pattern in rust orange, black, and cream colors. Includes dark trim details, zippered chest pocket, and button closure. Made of soft, warm material perfect for chilly outdoor activities or casual everyday wear.",
       "price": 54.99,
       "rating": 4.6,
-      "image_url": "southwestern_pattern_jacket.jpg",
-      "image": "southwestern_pattern_jacket.jpg"
+      "image_url": "aw021.jpg",
+      "image": "aw021.jpg"
     }
   },
   {
@@ -289,8 +289,8 @@
       "description": "Cream-colored sherpa/fleece pullover featuring bold southwestern/tribal geometric pattern in black, rust/terracotta, and cream. Designed with a comfortable half-zip design, oversized fit, and plush texture. Perfect for layering during outdoor activities or as a statement piece for casual outfits. Pairs well with solid-colored bottoms and accessories.",
       "price": 49.99,
       "rating": 4.7,
-      "image_url": "tribal_pattern_pullover.jpg",
-      "image": "tribal_pattern_pullover.jpg"
+      "image_url": "aw022.jpg",
+      "image": "aw022.jpg"
     }
   },
   {
@@ -303,8 +303,8 @@
       "description": "Dual-function portable camping lamp with built-in powerbank. Features a white/orange design with solar charging panel, USB output port, battery level indicators, and carrying handle. The bright LED light illuminates outdoor spaces while the powerbank function charges mobile devices. Perfect for camping, hiking, emergencies, or outdoor gatherings.",
       "price": 34.99,
       "rating": 4.8,
-      "image_url": "solar_lamp_powerbank.jpg",
-      "image": "solar_lamp_powerbank.jpg"
+      "image_url": "aw023.jpg",
+      "image": "aw023.jpg"
     }
   },
   {
@@ -317,8 +317,8 @@
       "description": "Innovative solar camping light with three adjustable globe lights and hanging hook. Features include long-lasting illumination, soccer ball-inspired design, stow-and-go portability, and solar charging capability. Perfect for lighting tents, campsites, patios, or emergency situations with bright, energy-efficient LED lighting.",
       "price": 29.99,
       "rating": 4.7,
-      "image_url": "triple_globe_solar_light.jpg",
-      "image": "triple_globe_solar_light.jpg"
+      "image_url": "aw024.jpg",
+      "image": "aw024.jpg"
     }
   },
   {
@@ -331,8 +331,8 @@
       "description": "Premium Naturehike envelope-style sleeping bag in dark olive green with light gray interior lining. Features rounded hood design, horizontal quilted construction, full-length zipper for easy entry/exit, and soft flannel interior. Durable water-resistant exterior shell perfect for camping, hiking, and outdoor overnight adventures in moderate temperatures.",
       "price": 74.99,
       "rating": 4.8,
-      "image_url": "naturehike_envelope_sleeping_bag.jpg",
-      "image": "naturehike_envelope_sleeping_bag.jpg"
+      "image_url": "aw025.jpg",
+      "image": "aw025.jpg"
     }
   },
   {
@@ -345,8 +345,8 @@
       "description": "Stylish and practical southwestern-patterned poncho with fringe detail. Features a dark color scheme with traditional patterns and comfortable drape. Perfect for cool evenings around the campfire or casual outdoor gatherings. Versatile layer that complements outdoor attire while providing warmth and protection.",
       "price": 49.99,
       "rating": 4.6,
-      "image_url": "southwestern_poncho.jpg",
-      "image": "southwestern_poncho.jpg"
+      "image_url": "aw026.jpg",
+      "image": "aw026.jpg"
     }
   },
   {
@@ -359,8 +359,8 @@
       "description": "Dual-headed tactical camping axe with measurement markings and multi-tool functionality. Features durable black handles with secure bolt construction and precision-cut steel blades. Measurement markings (6-14) make it practical for various outdoor tasks. Essential tool for camping, hiking, survival preparation, and outdoor adventures.",
       "price": 45.99,
       "rating": 4.7,
-      "image_url": "tactical_camping_axe.jpg",
-      "image": "tactical_camping_axe.jpg"
+      "image_url": "aw027.jpg",
+      "image": "aw027.jpg"
     }
   },
   {
@@ -373,8 +373,8 @@
       "description": "Heavy-duty canvas expedition duffel bag in khaki with multi-colored carabiner attachments. Features sturdy carrying handles, durable construction, and a specialized carabiner strip for attaching additional gear. Includes six colorful carabiners (blue, pink, orange, light blue, black, and lime green). Perfect for camping trips, outdoor adventures, and gear organization.",
       "price": 68.99,
       "rating": 4.5,
-      "image_url": "canvas_duffel_carabiners.jpg",
-      "image": "canvas_duffel_carabiners.jpg"
+      "image_url": "aw028.jpg",
+      "image": "aw028.jpg"
     }
   },
   {
@@ -387,8 +387,8 @@
       "description": "Powerful LED camping lantern with extended battery capacity and high brightness illumination. Features collapsible design, hanging handle, and battery compartment for multiple batteries. Long-lasting performance makes it ideal for camping trips, power outages, emergency situations, and outdoor activities where reliable lighting is essential.",
       "price": 27.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw029.jpg",
+      "image": "aw029.jpg"
     }
   },
   {
@@ -401,8 +401,8 @@
       "description": "Warm and durable brown fleece jacket designed for rugged outdoor conditions",
       "price": 48.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw030.jpg",
+      "image": "aw030.jpg"
     }
   },
   {
@@ -415,8 +415,8 @@
       "description": "Versatile and insulating navy body warmer with a soft fleece lining for added warmth and comfort.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw031.jpg",
+      "image": "aw031.jpg"
     }
   },
   {
@@ -429,8 +429,8 @@
       "description": "Stylish and functional body warmer featuring a two-tone black and grey design with lightweight insulation to keep you warm without bulk",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw032.jpg",
+      "image": "aw032.jpg"
     }
   },
   {
@@ -443,8 +443,8 @@
       "description": "Sleek and modern white puffer body warmer designed for lightweight warmth and all-day comfort",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw033.jpg",
+      "image": "aw033.jpg"
     }
   },
   {
@@ -457,8 +457,8 @@
       "description": "All-weather-ready black puffer body warmer with an attached hood for extra coverage and warmth",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw034.jpg",
+      "image": "aw034.jpg"
     }
   },
   {
@@ -471,8 +471,8 @@
       "description": "Lightweight and flexible barefoot shoes designed for natural movement on rugged terrain. Ideal for hiking, climbing, or scrambling where precision and agility matter.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw035.jpg",
+      "image": "aw035.jpg"
     }
   },
   {
@@ -485,8 +485,8 @@
       "description": "Engineered for agility and stealth, these camouflage barefoot shoes blend into natural surroundings while delivering maximum performance.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw036.jpg",
+      "image": "aw036.jpg"
     }
   },
   {
@@ -499,8 +499,8 @@
       "description": "Built for strength and stability, these grey and yellow boots combine rugged hiking performance with the protection of a steel toe.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw037",
+      "image": "aw037.jpg"
     }
   },
   {
@@ -513,8 +513,8 @@
       "description": "Durable and dependable, these brown hiking boots are designed for comfort and stability on long treks and uneven trails.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw038",
+      "image": "aw038.jpg"
     }
   },
   {
@@ -527,8 +527,8 @@
       "description": "Durable and dependable, these brown hiking boots are designed for comfort and stability on long treks and uneven trails.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw039.jpg",
+      "image": "aw039.jpg"
     }
   },
   {
@@ -541,8 +541,8 @@
       "description": "Featuring a premium leather upper, reinforced stitching, and a cushioned insole for all-day wear, these boots are built to endure the toughest outdoor conditions.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw040.jpg",
+      "image": "aw040.jpg"
     }
   },
   {
@@ -555,8 +555,8 @@
       "description": "Bold and eye-catching, these tri-color hiking boots combine style with performance for your outdoor adventures.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw041.jpg",
+      "image": "aw041.jpg"
     }
   },
   {
@@ -569,8 +569,8 @@
       "description": "Engineered for stealth and durability, these camouflage hiking boots are built to tackle the toughest trails while blending seamlessly into natural surroundings.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw042.jpg",
+      "image": "aw042.jpg"
     }
   },
   {
@@ -583,8 +583,8 @@
       "description": "Dynamic and durable, these black and red hiking boots are designed to keep you comfortable and supported on any trail.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw043.jpg",
+      "image": "aw043.jpg"
     }
   },
   {
@@ -597,8 +597,8 @@
       "description": "Crafted for versatility and durability, these beige all-terrain boots are designed to conquer any environment.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw044.jpg",
+      "image": "aw044.jpg"
     }
   },
   {
@@ -611,8 +611,8 @@
       "description": "Built for performance and style, these black and green hiking boots offer exceptional comfort and durability on all types of terrain.",
       "price": 51.99,
       "rating": 4.9,
-      "image_url": "led_camping_lantern.jpg",
-      "image": "led_camping_lantern.jpg"
+      "image_url": "aw045.jpg",
+      "image": "aw045.jpg"
     }
   }
   
