@@ -3,7 +3,7 @@
     "pk": 1,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW001",
       "name": "Beige Outdoor Training Shoes",
       "description": "Lightweight beige outdoor training shoes with breathable cutout design. Features durable rubber outsole and elastic lacing system for easy wear and comfort during workouts or outdoor activities.",
@@ -31,7 +31,7 @@
     "pk": 3,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 4,
       "sku": "AW003",
       "name": "Red Cargo Athletic Shorts",
       "description": "High-waisted red cargo athletic shorts with drawstring closure and zippered pockets. Made from breathable, lightweight material perfect for workouts, running, or casual wear. Features elastic waistband for comfortable fit.",
@@ -45,7 +45,7 @@
     "pk": 4,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW004",
       "name": "Colorblock Corduroy Jacket",
       "description": "Trendy colorblock corduroy jacket featuring green, brown and cream panels. Oversized fit with button closure, multiple pockets and frayed hem detail. Perfect for layering over workout clothes or casual outfits in cooler weather.",
@@ -59,7 +59,7 @@
     "pk": 5,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW005",
       "name": "Grey Outdoor Hiking Sandals",
       "description": "Durable grey hiking sandals with protective toe cap and cushioned footbed. Features quick-dry lining, adjustable straps, and rugged outsole perfect for hiking, water activities, or everyday outdoor wear. Available in size 40 and other sizes.",
@@ -73,7 +73,7 @@
     "pk": 6,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW006",
       "name": "Army Green Fleece Vest",
       "description": "Cozy army green fleece vest with high collar and full zipper closure. Features hand pockets and sleeveless design perfect for layering over long-sleeve tops. Ideal for outdoor activities, casual wear, or as an additional layer for warmth.",
@@ -87,7 +87,7 @@
     "pk": 7,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW007",
       "name": "Black & Pink Hiking Boots",
       "description": "Durable black hiking boots with pink accents. Features high-top ankle support, rugged tread pattern, water-resistant materials, and cushioned insole. Perfect for trail hiking, outdoor adventures, and all-terrain walking.",
@@ -101,7 +101,7 @@
     "pk": 8,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW008",
       "name": "Olive Green Hiking Shoes",
       "description": "Military green outdoor hiking shoes with 'SPORT' branding and durable lace-up design. Features padded collar, grippy rubber outsole, and water-resistant exterior. Perfect for trail walking, outdoor activities, and casual wear.",
@@ -129,7 +129,7 @@
     "pk": 10,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 4,
       "sku": "AW010",
       "name": "Mint Green Athletic Leggings",
       "description": "High-waisted mint green athletic leggings with side pocket and contoured panels. Made from stretchy, moisture-wicking fabric perfect for hiking, gym workouts, or casual wear. Features a comfortable waistband and flattering fit.",
@@ -143,7 +143,7 @@
     "pk": 11,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 4,
       "sku": "AW011",
       "name": "Gray Cargo Utility Pants",
       "description": "Relaxed fit gray cargo pants with multiple utility pockets and button closure. Features durable cotton material perfect for outdoor activities or urban streetwear. Can be styled high-waisted or low-rise for versatile looks.",
@@ -157,7 +157,7 @@
     "pk": 12,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 4,
       "sku": "AW012",
       "name": "Black Tactical Jogger Pants",
       "description": "Black cargo jogger pants with multiple utility pockets and gold accent tags. Features drawstring waist, elastic ankle cuffs, and lightweight tactical design. Perfect for urban adventures, casual wear, or stylish athleisure outfits.",
@@ -185,7 +185,7 @@
     "pk": 15,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW015",
       "name": "Gray Striped Fleece Pullover",
       "description": "Cozy gray and blue striped fleece pullover with half-zip design. Features textured pattern, relaxed fit, and collar detail. Perfect for casual streetwear, layering over basic tops, or staying warm during outdoor activities.",
@@ -199,7 +199,7 @@
     "pk": 16,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 4,
       "sku": "AW016",
       "name": "Tactical Cargo Pants",
       "description": "Durable black tactical cargo pants with multiple utility pockets and straight-leg design. Features belt loops and rugged construction. Shown paired with beige military-style boots for complete outdoor adventure look.",
@@ -213,7 +213,7 @@
     "pk": 17,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 4,
       "sku": "AW017",
       "name": "Black Cargo Joggers with Drawstring",
       "description": "Comfortable black cargo joggers with side utility pockets and drawstring waist. Features elastic ankle cuffs and relaxed fit through the leg. Perfect for urban streetwear, casual outings, or athletic-inspired fashion looks.",
@@ -227,7 +227,7 @@
     "pk": 18,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 4,
       "sku": "AW018",
       "name": "Premium Techwear Cargo Pants",
       "description": "High-end black techwear cargo pants with multiple zippered pockets and utility features. Features drawcord details, elastic ankle cuffs, and modern tactical design. Perfect for urban exploration, streetwear fashion, or functional everyday wear.",
@@ -269,7 +269,7 @@
     "pk": 21,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW021",
       "name": "Southwestern Pattern Fleece Jacket",
       "description": "Stylish button-up fleece jacket featuring a distinctive southwestern/tribal pattern in rust orange, black, and cream colors. Includes dark trim details, zippered chest pocket, and button closure. Made of soft, warm material perfect for chilly outdoor activities or casual everyday wear.",
@@ -283,7 +283,7 @@
     "pk": 22,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW022",
       "name": "Tribal Pattern Sherpa Pullover",
       "description": "Cream-colored sherpa/fleece pullover featuring bold southwestern/tribal geometric pattern in black, rust/terracotta, and cream. Designed with a comfortable half-zip design, oversized fit, and plush texture. Perfect for layering during outdoor activities or as a statement piece for casual outfits. Pairs well with solid-colored bottoms and accessories.",
@@ -339,7 +339,7 @@
     "pk": 26,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW026",
       "name": "Southwestern Patterned Poncho",
       "description": "Stylish and practical southwestern-patterned poncho with fringe detail. Features a dark color scheme with traditional patterns and comfortable drape. Perfect for cool evenings around the campfire or casual outdoor gatherings. Versatile layer that complements outdoor attire while providing warmth and protection.",
@@ -395,7 +395,7 @@
     "pk": 30,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW030",
       "name": "Rugged Brown Fleece Jacket",
       "description": "Warm and durable brown fleece jacket designed for rugged outdoor conditions",
@@ -409,7 +409,7 @@
     "pk": 31,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW031",
       "name": "Navy fleece-lined body warmer",
       "description": "Versatile and insulating navy body warmer with a soft fleece lining for added warmth and comfort.",
@@ -423,7 +423,7 @@
     "pk": 32,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW032",
       "name": "Black and Grey Body Warmer",
       "description": "Stylish and functional body warmer featuring a two-tone black and grey design with lightweight insulation to keep you warm without bulk",
@@ -437,7 +437,7 @@
     "pk": 33,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW033",
       "name": "White Puffer Body Warmer",
       "description": "Sleek and modern white puffer body warmer designed for lightweight warmth and all-day comfort",
@@ -451,7 +451,7 @@
     "pk": 34,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 5,
       "sku": "AW034",
       "name": "Black Hooded Puffer Body Warmer",
       "description": "All-weather-ready black puffer body warmer with an attached hood for extra coverage and warmth",
@@ -465,7 +465,7 @@
     "pk": 35,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW035",
       "name": "Black and Orange Barefoot Hiking/Climbing Shoes",
       "description": "Lightweight and flexible barefoot shoes designed for natural movement on rugged terrain. Ideal for hiking, climbing, or scrambling where precision and agility matter.",
@@ -479,7 +479,7 @@
     "pk": 36,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW036",
       "name": "Camouflage Barefoot Hiking/Climbing Shoes",
       "description": "Engineered for agility and stealth, these camouflage barefoot shoes blend into natural surroundings while delivering maximum performance.",
@@ -493,7 +493,7 @@
     "pk": 37,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW037",
       "name": "Grey and Yellow Steel Toe Hiking/Work Boots",
       "description": "Built for strength and stability, these grey and yellow boots combine rugged hiking performance with the protection of a steel toe.",
@@ -507,7 +507,7 @@
     "pk": 38,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW038",
       "name": "Brown Hiking/Walking Boots",
       "description": "Durable and dependable, these brown hiking boots are designed for comfort and stability on long treks and uneven trails.",
@@ -521,7 +521,7 @@
     "pk": 39,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW039",
       "name": "Brown Hiking/Walking Boots",
       "description": "Durable and dependable, these brown hiking boots are designed for comfort and stability on long treks and uneven trails.",
@@ -535,7 +535,7 @@
     "pk": 40,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW040",
       "name": "Brown Leather Hiking Boots",
       "description": "Featuring a premium leather upper, reinforced stitching, and a cushioned insole for all-day wear, these boots are built to endure the toughest outdoor conditions.",
@@ -549,7 +549,7 @@
     "pk": 41,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW041",
       "name": "Tri-Color Hiking Boots",
       "description": "Bold and eye-catching, these tri-color hiking boots combine style with performance for your outdoor adventures.",
@@ -563,7 +563,7 @@
     "pk": 42,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW042",
       "name": "Camouflage Hiking Boots",
       "description": "Engineered for stealth and durability, these camouflage hiking boots are built to tackle the toughest trails while blending seamlessly into natural surroundings.",
@@ -577,7 +577,7 @@
     "pk": 43,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW043",
       "name": "Black and Red Hiking/Walking Boots",
       "description": "Dynamic and durable, these black and red hiking boots are designed to keep you comfortable and supported on any trail.",
@@ -591,7 +591,7 @@
     "pk": 44,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW044",
       "name": "Beige All-Terrain Boots",
       "description": "Crafted for versatility and durability, these beige all-terrain boots are designed to conquer any environment.",
@@ -605,7 +605,7 @@
     "pk": 45,
     "model": "products.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "sku": "AW044",
       "name": "Black and Green Hiking Boots",
       "description": "Built for performance and style, these black and green hiking boots offer exceptional comfort and durability on all types of terrain.",
