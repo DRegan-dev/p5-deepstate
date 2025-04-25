@@ -124,6 +124,16 @@ header.container-fluid {
     letter-spacing: 0.5px;
 }
 
+.overlay {
+    height: 100%;
+    width:100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
+}
+
 /* Responsove styles */
 /* Desktop styles (hiding mobile styles)*/
 @media (min-width: 992px) {
