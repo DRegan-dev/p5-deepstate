@@ -1,0 +1,52 @@
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav w-auto mx-auto">
+        <li class="nav-item dropdown">
+            <a href="#" class="logo-font fw-bold nav-link text-white me-4" id="all_products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All Products
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="" class="dropdown-item">By Price</a>
+                <a href="" class="dropdown-item">By Rating</a>
+                <a href="" class="dropdown-item">By Category</a>
+                <a href="{% url 'products' %}" class="dropdown-item">By Category</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="#" class="logo-font fw-bold nav-link text-white me-4" id="all_products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Footwear
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="{% url 'products' %}?category=shoes" class="dropdown-item">Shoes</a>
+                <a href="{% url 'products' %}?category=boots" class="dropdown-item">Boots</a>
+                <a href="{% url 'products' %}?category=footwear" class="dropdown-item">All Footwear</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="#" class="logo-font fw-bold nav-link text-white me-4" id="all_products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Clothing
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="{% url 'products' %}?category=activewear" class="dropdown-item">Activewear</a>
+                <a href="{% url 'products' %}?category=trousers" class="dropdown-item">Trousers</a>
+                <a href="{% url 'products' %}?category=sweaters" class="dropdown-item">Sweaters</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="#" class="logo-font fw-bold nav-link text-white me-4" id="all_products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Adventure
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="{% url 'products' %}?category=adventure" class="dropdown-item">All Adventure Gear</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="#" class="logo-font fw-bold nav-link text-white me-4" id="all_products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Special Offers
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="{% url 'products' %}?category=new_arrival" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+            </div>
+        </li>
+    </ul>
+</div>
