@@ -134,6 +134,22 @@ header.container-fluid {
     z-index: -1;
 }
 
+a.category-badge >span.badge:hover {
+    background: lightgrey !important;
+    color: black !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
 /* Responsove styles */
 /* Desktop styles (hiding mobile styles)*/
 @media (min-width: 992px) {
