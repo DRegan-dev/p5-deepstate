@@ -31,7 +31,7 @@
                     <div class="row mt-1 mb-2">
                         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                             <div class="sort-select-wrapper w-50">
-                                <select name="" id="" class="custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                                <select name="sort" id="sortSelector" class="custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                     <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                     <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                                     <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
@@ -110,20 +110,36 @@
         });
     </script>
     <script type="text/javascript">
-        document.querySelector('#sortSelector').addEventListener('change', function() {
-            const currentUrl = new URL(window.location);
-            const selectedVal = this.value;
+        alert("Testing if JavaScript works on this page");
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Dom fully loaded - starting script execution");
+            const bttLink = document.querySelector('.btt-link');
+            if (bttLink) {
+                bttLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth'});
+                });
+            }
 
-            if (selectedVal != "reset") {
-                const sort = selectedVal.split("_")[0];
-                const direction = selectedVal.split("_")[1];
-                currentUrl.searchParams.SET("sort", sort);
-                currentUrl.searchParams.SET("direction", direction);
-                window.location.replace(currentUrl);
+            const sortSelector = document.getElementById('sortSelector');
+            if (sortSelector) {
+                sortSelector.addEventListener('change', function() {
+                    const currentUrl = new URL(window.location);
+                    const selectedVal = this.value;
+
+                    if (selectedVal !== 'reset') {
+                        const [sort, direction] = selectedVal.split("_");
+                        currentUrl.searchParams.set("sort", sort);
+                        currentUrl.searchParams.set("direction", direction);
+                    } else {
+                        currentUrl.searchParams.delete("sort");
+                        currentUrl.searchParams.delete("direction");
+                    }
+
+                    window.location.href = currentUrl.toString();
+                });
             } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
-                window.location.replace(currentUrl);
+                console.error("Sort selector not found in the DOM");
             }
         });
     </script>

@@ -3,63 +3,72 @@
     "pk": 1,
     "model": "products.category",
     "fields": {
-      "name": "Adventure"
+      "name": "adventure",
+      "friendly_name": "Adventure"
     }
   },
   {
     "pk": 2,
     "model": "products.category",
     "fields": {
-      "name": "Footwear"
+      "name": "footwear",
+      "friendly_name": "Footwear"
     }
   },
   {
     "pk": 8,
     "model": "products.category",
     "fields": {
-      "name": "Shoes"
+      "name": "shoes",
+      "friendly_name": "Shoes"
     }
   },
   {
     "pk": 9,
     "model": "products.category",
     "fields": {
-      "name": "Boots"
+      "name": "boots",
+      "friendly_name": "Boots"
     }
   },
   {
     "pk": 3,
     "model": "products.category",
     "fields": {
-      "name": "Activewear"
+      "name": "activewear",
+      "friendly_name": "Activewear"
     }
   },
   {
     "pk": 4,
     "model": "products.category",
     "fields": {
-      "name": "Trousers"
+      "name": "trousers",
+      "friendly_name": "Trousers"
     }
   },
   {
     "pk": 5,
     "model": "products.category",
     "fields": {
-      "name": "Sweaters"
+      "name": "sweaters",
+      "friendly_name": "Sweaters"
     }
   },
   {
     "pk": 6,
     "model": "products.category",
     "fields": {
-      "name": "New Arrivals"
+      "name": "new_arrivals",
+      "friendly_name": "New Arrivals"
     }
   },
   {
     "pk": 7,
     "model": "products.category",
     "fields": {
-      "name": "Clearance"
+      "name": "clearance",
+      "friendly_name": "Clearance"
     }
   }
 ]
