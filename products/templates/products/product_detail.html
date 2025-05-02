@@ -71,21 +71,48 @@
                                 <a href="{% url 'products' %}" class="btn btn-outline-secondary">
                                     <i class="fas fa-chevron-left me-2"></i>Back to Products
                                 </a>
+                                <button class="btn btn-success ms-2">
+                                    <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                                </button>
                             </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </form>
-                    <div class="mt-4">
-                        <a href="{% url 'products' %}" class="btn btn-outline-secondary">
-                            <i class="fas fa-chevron-left me-2"></i>Back to Products
-                        </a>
-                        <button class="btn btn-success ms-2">
-                            <i class="fas fa-cart-plus me-2"></i>Add to Cart
-                        </button>
-                    </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const decreaseButtons = document.querySelectorAll('.quantity-decrease');
+            const increaseButtons = document.querySelectorAll('quantity-increase');
+
+            decreaseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemID = this.getAttribute('data-item_id');
+                    const inputField = document.getElementById('id_qty_${itemId}');
+                    let currentValue = parseInt(inputField.value);
+                    if (currentValue > 1) {
+                        inputField.value = currentValue - 1;
+                    }
+                });
+            });
+
+            increaseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemID = this.getAttribute('data-item_id');
+                    const inputField = document.getElementById('id_qty_${itemId}');
+                    let currentValue = parseInt(inputField.value);
+                    if (currentValue < 1) {
+                        inputField.value = currentValue + 1;
+                    }
+                });
+            });
+        })
+    </script>
 {% endblock %}
 
