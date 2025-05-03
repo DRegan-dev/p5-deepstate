@@ -114,7 +114,15 @@ header.container-fluid {
     border-color: #000;
 }
 
-.btn-outline-dark:hover {
+.btn-outline-dark {
+    background: black;
+    color: white !important;
+    border: 1px solid white;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:active,
+.btn-outline-dark:focus {
     background-color: #f8f9fa;
     color: #212529;
 }
