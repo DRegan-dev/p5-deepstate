@@ -3,7 +3,7 @@
     "pk": 1,
     "model": "products.product",
     "fields": {
-      "category": 3,
+      "category": 8,
       "sku": "AW001",
       "name": "Beige Outdoor Training Shoes",
       "description": "Lightweight beige outdoor training shoes with breathable cutout design. Features durable rubber outsole and elastic lacing system for easy wear and comfort during workouts or outdoor activities.",
@@ -59,7 +59,7 @@
     "pk": 5,
     "model": "products.product",
     "fields": {
-      "category": 3,
+      "category": 8,
       "sku": "AW005",
       "name": "Grey Outdoor Hiking Sandals",
       "description": "Durable grey hiking sandals with protective toe cap and cushioned footbed. Features quick-dry lining, adjustable straps, and rugged outsole perfect for hiking, water activities, or everyday outdoor wear. Available in size 40 and other sizes.",
@@ -87,7 +87,7 @@
     "pk": 7,
     "model": "products.product",
     "fields": {
-      "category": 4,
+      "category": 9,
       "sku": "AW007",
       "name": "Black & Pink Hiking Boots",
       "description": "Durable black hiking boots with pink accents. Features high-top ankle support, rugged tread pattern, water-resistant materials, and cushioned insole. Perfect for trail hiking, outdoor adventures, and all-terrain walking.",
@@ -101,7 +101,7 @@
     "pk": 8,
     "model": "products.product",
     "fields": {
-      "category": 3,
+      "category": 8,
       "sku": "AW008",
       "name": "Olive Green Hiking Shoes",
       "description": "Military green outdoor hiking shoes with 'SPORT' branding and durable lace-up design. Features padded collar, grippy rubber outsole, and water-resistant exterior. Perfect for trail walking, outdoor activities, and casual wear.",
@@ -465,7 +465,7 @@
     "pk": 35,
     "model": "products.product",
     "fields": {
-      "category": 3,
+      "category": 8,
       "sku": "AW035",
       "name": "Black and Orange Barefoot Hiking/Climbing Shoes",
       "description": "Lightweight and flexible barefoot shoes designed for natural movement on rugged terrain. Ideal for hiking, climbing, or scrambling where precision and agility matter.",
@@ -479,7 +479,7 @@
     "pk": 36,
     "model": "products.product",
     "fields": {
-      "category": 3,
+      "category": 8,
       "sku": "AW036",
       "name": "Camouflage Barefoot Hiking/Climbing Shoes",
       "description": "Engineered for agility and stealth, these camouflage barefoot shoes blend into natural surroundings while delivering maximum performance.",
@@ -493,7 +493,7 @@
     "pk": 37,
     "model": "products.product",
     "fields": {
-      "category": 4,
+      "category": 9,
       "sku": "AW037",
       "name": "Grey and Yellow Steel Toe Hiking/Work Boots",
       "description": "Built for strength and stability, these grey and yellow boots combine rugged hiking performance with the protection of a steel toe.",
@@ -507,7 +507,7 @@
     "pk": 38,
     "model": "products.product",
     "fields": {
-      "category": 4,
+      "category": 9,
       "sku": "AW038",
       "name": "Brown Hiking/Walking Boots",
       "description": "Durable and dependable, these brown hiking boots are designed for comfort and stability on long treks and uneven trails.",
@@ -521,7 +521,7 @@
     "pk": 39,
     "model": "products.product",
     "fields": {
-      "category": 4,
+      "category": 9,
       "sku": "AW039",
       "name": "Brown Hiking/Walking Boots",
       "description": "Durable and dependable, these brown hiking boots are designed for comfort and stability on long treks and uneven trails.",
@@ -535,7 +535,7 @@
     "pk": 40,
     "model": "products.product",
     "fields": {
-      "category": 4,
+      "category": 9,
       "sku": "AW040",
       "name": "Brown Leather Hiking Boots",
       "description": "Featuring a premium leather upper, reinforced stitching, and a cushioned insole for all-day wear, these boots are built to endure the toughest outdoor conditions.",
@@ -549,7 +549,7 @@
     "pk": 41,
     "model": "products.product",
     "fields": {
-      "category": 4,
+      "category": 9,
       "sku": "AW041",
       "name": "Tri-Color Hiking Boots",
       "description": "Bold and eye-catching, these tri-color hiking boots combine style with performance for your outdoor adventures.",
@@ -563,7 +563,7 @@
     "pk": 42,
     "model": "products.product",
     "fields": {
-      "category": 4,
+      "category": 9,
       "sku": "AW042",
       "name": "Camouflage Hiking Boots",
       "description": "Engineered for stealth and durability, these camouflage hiking boots are built to tackle the toughest trails while blending seamlessly into natural surroundings.",
@@ -577,7 +577,7 @@
     "pk": 43,
     "model": "products.product",
     "fields": {
-      "category": 4,
+      "category": 9,
       "sku": "AW043",
       "name": "Black and Red Hiking/Walking Boots",
       "description": "Dynamic and durable, these black and red hiking boots are designed to keep you comfortable and supported on any trail.",
@@ -591,7 +591,7 @@
     "pk": 44,
     "model": "products.product",
     "fields": {
-      "category": 4,
+      "category": 9,
       "sku": "AW044",
       "name": "Beige All-Terrain Boots",
       "description": "Crafted for versatility and durability, these beige all-terrain boots are designed to conquer any environment.",
@@ -605,7 +605,7 @@
     "pk": 45,
     "model": "products.product",
     "fields": {
-      "category": 4,
+      "category": 9,
       "sku": "AW044",
       "name": "Black and Green Hiking Boots",
       "description": "Built for performance and style, these black and green hiking boots offer exceptional comfort and durability on all types of terrain.",
