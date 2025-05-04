@@ -1,0 +1,97 @@
+<script type="text/javascript">
+
+    //Wait for DOM to load fully
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM loaded - initializing quantity controls");
+
+        // Preventing default button behaviour
+        document.querySelectorAll(".quantity-decrease, .quantity-increase").forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+            })
+        })
+
+        //Disable +/- buttons outside 1-99 range
+        function handleEnableDisable(itemId) {
+            const currentValue = parseInt(document.getElementById(`id_qty_${itemId}`).value);
+            const minusDisabled = currentValue < 2;
+            const plusDisabled = currentValue > 98;
+
+            const decrementBtn = document.querySelector(`.quantity-decrease[data-item_id="${itemId}"]`);
+            const incrementBtn = document.querySelector(`.quantity-increase[data-item_id="${itemId}"]`);
+            if (decrementBtn) decreaseBtn.disabled = minusDisabled;
+            if (incrementBtn) increaseBtn.disabled = plusDisabled;
+        }
+
+        document.querySelectorAll(".qty_input").forEach(input => {
+            const itemId = input.getAttribute('data-item_id');
+            handleEnableDisable(itemId);
+        })
+
+        // Handle quantity decrease 
+        document.querySelectorAll(".quantity-decrease").forEach(button => {
+            console.log("Found decrease button:", button);
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const itemId = this.getAttribute('data-item_id');
+                console.log('Decrease clicked for item:', itemId);
+
+                const inputField = document.getElementById(`id_qty_${itemId}`);
+                let currentValue = parseInt(inputField.value);
+
+                if (currentValue > 1) {
+                    //set new value
+                    inputField.value = currentValue - 1;
+                    console.log('Decreased value to:', inputField.value);
+
+                    inputField.dispatchEvent(new Event('change', { bubbles: true}));
+                }
+            });
+        });
+
+        //Handle quantity increase
+        document.querySelectorAll(".quantity-increase").forEach(button => {
+            console.log("Found increase button:", button);
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const itemId = this.getAttribute('data-item_id');
+                console.log('Increase clicked for item:', itemId);
+
+                const inputField = document.getElementById(`id_qty_${itemId}`);
+                let currentValue = parseInt(inputField.value);
+
+                if (currentValue < 99) {
+                    //set new value
+                    inputField.value = currentValue + 1;
+                    console.log('Increased value to:', inputField.value);
+
+                    inputField.dispatchEvent(new Event('change', { bubbles: true}));
+                }
+            });
+        });
+
+
+
+
+        // Function to handle quntity changes
+        function handleQtyChange(inputField) {
+            const event = new Event('change', { bubbles: true });
+            inputField.dispatchEvent(event);
+        }
+
+        // Ensure direct input changes are also handled
+        document.querySelectorAll('.qty_input').forEach(input => {
+            input.addEventListener('change', function() {
+                let val = parseInt(this.value);
+                // Ensure value is within parameters
+                if (isNaN(val) || val < 1) {
+                    this.value = 1;
+                } else if (val > 99) {
+                    this.value = 99;
+                }
+
+                console.log('Input changed to:', this.value);
+            })
+        })
+    })
+</script>
