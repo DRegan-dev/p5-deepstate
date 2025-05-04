@@ -14,8 +14,8 @@ def basket_contents(request):
         product = get_object_or_404(Product, pk=item_id)
         total += quantity * product.price
         product_count += quantity
-        basket_items.apped({
-            'item+id': item_id,
+        basket_items.append({
+            'item_id': item_id,
             'quantity': quantity,
             'product': product,
         })
@@ -39,4 +39,4 @@ def basket_contents(request):
         'grand_total': grand_total,
     }
 
-    return context_
+    return context
