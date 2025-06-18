@@ -6,21 +6,24 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Deepstate - Your Premium product store">
+        <meta name="keywords" content="products, shopping, DeepState">
+        <meta rel="canonical" href="{% url 'home' %}">
         {% endblock %}
+
         {% block extra_meta %}
         {% endblock %}
+
         {% block corecss %}
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-        <link rel="stylesheet" href="../static/css/base.css">
+        {% include 'includes/external_css.html' %}
+        <link rel="stylesheet" media="screen" href="{% static 'css/base.css' %}">
         {% endblock %}
 
         {% block extra_css %}
         {% endblock %}
 
         {% block corejs %}
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/5125eaa352.js" crossorigin="anonymous"></script>
+        {% include 'includes/external_js.html' %}
         {% endblock %}
 
         {% block extra_js %}
@@ -29,45 +32,45 @@
     </head>
     <body>
         {% with user_authenticated=request.user.is_authenticated is_super_user=request.user.is_superuser %}
-        <header class="container-fluid fixed-top" style="background: transparent; padding: 0 0;">
+        <header class="container-fluid fixed-top" style="background: transparent; padding: 0 0;" role="banner">
             <div id="topnav" class="row py-lg-2 d-flex">
                 <!-- Logo Section -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
-                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <span class="logo-font text-white my-0"><h2>Deep<strong>State</strong></h2></span>
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link" aria-label="DeepState Home">
+                        <span class="logo-font text-white my-0"><h2>Deep<strong>State</strong></h2></span>
                     </a>
                 </div>
                 <!-- Main Navigation and User Controls -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <!-- Search form -->
-                    <form action="{% url 'products' %}" method="get">
+                    <form action="{% url 'products' %}" method="get" class="search-form" role="search">
                         {% csrf_token %}
                         <div class="input-group w-100">
-                            <input type="text" class="form-control border border-dark rounded-0" name="q" placeholder="Search items...">
-                            <button class="btn btn-dark border border-dark rounded-0" type="submit">
+                            <input type="text" class="form-control border border-dark rounded-0" name="q" placeholder="Search items..." aria-label="Enter search terms fro products">
+                            <button class="btn btn-dark border border-dark rounded-0" type="submit" aria-label="Submit search">
                                 <span class="icon">
-                                    <i class="fas fa-search"></i>
+                                    <i class="fas fa-search" aria-hidden="true"></i>
                                 </span>
                             </button>
                         </div>
                     </form>
                 </div>
-                        <!-- User Account & Shopping Bag -->
+                <!-- User Account & Shopping Bag -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <ul class="list-inline list-unstyled text-center text-lg-end my-0">
                         <li class="list-inline-item dropdown">
                             <a href="#" class="text-light nav-link" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
-                                    <div><i class="fas fa-user fa-lg"></i></div>
+                                    <div><i class="fas fa-user fa-lg" aria-hidden="true"></i></div>
                                     <p class="my-0">My Account</p>
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if user.is_authenticated %}
                                     {% if user.is_superuser %}
-                                        <a href="" class="dropdown-item">Product Management</a>
+                                        <a href="{% url 'product_management' %}" class="dropdown-item">Product Management</a>
                                     {% endif %}
-                                    <a href="" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 {% else %}
                                     <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -78,7 +81,7 @@
                         <li class="list-inline-item">
                             <a href="{% url 'view_basket' %}" class="{% if grand_total %}text-info fw-bold{% else %}text-white{% endif %} nav-link">
                                 <div class="text-center">
-                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <div><i class="fas fa-shopping-bag fa-lg" aria-hidden="true"></i></div>
                                     <p class="my-0">
                                         {% if grand_total %}
                                             ${{ grand_total|floatformat:2 }}
@@ -93,7 +96,7 @@
                 </div>
             </div>  
             <div class="row bg-black">
-                <nav class="navbar navbar-expand-lg navbar-dark w-100">
+                <nav class="navbar navbar-expand-lg navbar-dark w-100" role="navigation">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" 
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -102,7 +105,7 @@
                     {% include 'includes/main-nav.html' %}
                 </nav>
             </div> 
-            <div id="delivery-banner" class="row text-center">
+            <div id="delivery-banner" class="row text-center" role="status">
                 <div class="col bg-black text-white">
                     <h4 class="logo-font my-1">Grab free shipping on orders over {{free_delivery_minimum}}!</h4>
                 </div>
@@ -111,13 +114,35 @@
         {% endwith %}
 
         {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container" role="alert" aria-live="polite">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
         {% endif %}
+
         {% block page_header %}
         {% endblock %}
-        {% block content %}
-        {% endblock %}
+
+        <main role="main">
+            {% block content %}
+            {% endblock %}
+        </main>
+
         {% block postloadjs %}
+        <script>
+            // Add loading state for search form
+            document.addEventListener('DOMContentLoaded', function() {
+                const searchForm = document.querySelector('.search-form');
+                if (searchForm) {
+                    searchForm.addEventListener('submit', function() {
+                        this.classList.add('loading');
+                    });
+                }
+            });
+        </script>
         {% endblock %}
     </body>
 </html>

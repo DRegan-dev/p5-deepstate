@@ -17,7 +17,7 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
                     {% if product.image %}
-                        <a href="{{ product.iamge }}" target="_blank">
+                        <a href="{{ product.image }}" target="_blank">
                             <img src="{{ product.image.url }}" alt=" {{ product.name}} " class="card-img-top img-fluid">
                         </a>
                     {% else %}
@@ -68,7 +68,7 @@
                                 </div>
                             {% endif %}
                             <div class="col-12">
-                                <p class="mt-3 fw-bold text dark">Quantity:</p>
+                                <p class="mt-3 fw-bold text-dark">Quantity:</p>
                                 <div class="input-group mb-3" style="width: 130px;">
                                     <button class="btn btn-dark btn-outline-secondary quantity-decrease" type="button" data-item_id="{{ product.id }}">
                                         <i class="fas fa-minus small"></i>

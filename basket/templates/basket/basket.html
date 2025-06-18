@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="mb-4">Shopping Basket</h2>
+                <h2 class="mb-4 text-dark">Shopping Basket</h2>
                 <hr>
             </div>
         </div>
@@ -53,6 +53,35 @@
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price }}</p>
                                     </td>
+                                    <td class="py-3 w-25">
+                                        <form method="POST" class="form update-form" action="{% url 'adjust_basket' item.item_id %}">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <button  type="button" class="quantity-decrease btn btn-outline-secondary btn-dark" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                        <i class="fas fa-minus small"></i>
+                                                    </button>
+
+                                                    <input type="number" class="form-control text-center qty-input"
+                                                        name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                        id="id_qty_{{ item.item_id }}">
+
+                                                    <button class="quantity-increase btn btn-outline-secondary btn-dark"
+                                                        data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                        <span>
+                                                            <i class="fas fa-plus fa-sm"></i>
+                                                        </span>
+                                                    </button>
+
+                                                    {% if item.product.has_sizes %}
+                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <a class="update-link text-info"><small>Update</small></a>
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                                    </td>
                                 </tr>
                             {% endfor %}
                             <tr>
@@ -86,7 +115,7 @@
                         </table>
                     </div>
                 {% else %}
-                    <p class="lead mb-5">Your basket is empty.</p>
+                    <p class="lead mb-5 text-dark">Your basket is empty.</p>
                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
@@ -97,4 +126,49 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+<script type="text/javascript">
+
+    // Update quantity on click
+    document.querySelectorAll('.update-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const form = this.previousElementSibling;
+            if (form && form.classList.contains('update-form')) {
+                form.submit();
+            }
+        });
+    });
+
+    // remove item nad reload on click
+    document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const csrfToken = "{{ csrf_token }}";
+            const itemId = this.id.split('remove_')[1];
+            const size = this.dataset.size;
+            const url = `/basket/remove/${itemId}/`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': csrfToken
+                },
+                body: new URLSearchParams({ size: size })
+            })
+            .then(response => {
+                if(response.ok) {
+                    location.reload();
+                } else {
+                    console.error('Failed to remove item');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        })
+    })
+</script>
 {% endblock %}

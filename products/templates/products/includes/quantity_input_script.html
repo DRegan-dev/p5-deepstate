@@ -19,8 +19,8 @@
 
             const decrementBtn = document.querySelector(`.quantity-decrease[data-item_id="${itemId}"]`);
             const incrementBtn = document.querySelector(`.quantity-increase[data-item_id="${itemId}"]`);
-            if (decrementBtn) decreaseBtn.disabled = minusDisabled;
-            if (incrementBtn) increaseBtn.disabled = plusDisabled;
+            if (decrementBtn) decrementBtn.disabled = minusDisabled;
+            if (incrementBtn) incrementBtn.disabled = plusDisabled;
         }
 
         document.querySelectorAll(".qty_input").forEach(input => {
@@ -83,6 +83,7 @@
         document.querySelectorAll('.qty_input').forEach(input => {
             input.addEventListener('change', function() {
                 let val = parseInt(this.value);
+                const itemId = this.getAttribute('data-item_id');
                 // Ensure value is within parameters
                 if (isNaN(val) || val < 1) {
                     this.value = 1;
@@ -91,6 +92,8 @@
                 }
 
                 console.log('Input changed to:', this.value);
+
+                handleEnableDisable(itemId);
             })
         })
     })
