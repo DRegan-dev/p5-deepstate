@@ -20,6 +20,12 @@
         {% endblock %}
 
         {% block extra_css %}
+        <style>
+            .main-content {
+                padding-top: 100px;
+                min-height: calc(100vh - 100px);
+            }
+        </style>
         {% endblock %}
 
         {% block corejs %}
@@ -58,26 +64,40 @@
                 <!-- User Account & Shopping Bag -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <ul class="list-inline list-unstyled text-center text-lg-end my-0">
-                        <li class="list-inline-item dropdown">
-                            <a href="#" class="text-light nav-link" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center">
-                                    <div><i class="fas fa-user fa-lg" aria-hidden="true"></i></div>
-                                    <p class="my-0">My Account</p>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                {% if user.is_authenticated %}
+                        {% if user.is_authenticated %}
+                            <li class="list-inline-item dropdown">
+                                <a href="#" class="text-light nav-link" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="text-center">
+                                        <div><i class="fas fa-user fa-lg" aria-hidden="true"></i></div>
+                                        <p class="my-0">My Account</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                     {% if user.is_superuser %}
                                         <a href="{% url 'product_management' %}" class="dropdown-item">Product Management</a>
                                     {% endif %}
                                     <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                {% else %}
-                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                                {% endif %}
-                            </div>
-                        </li>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>                            
+                                </div>
+                            </li>
+                        {% else %}
+                            <li class="list-inline-item">
+                                <a href="{% url 'account_login' %}" class="text-light navlink">
+                                    <div class="text-center">
+                                        <div><i class="fas fa-user fa-lg" aria-hidden="true"></i></div>
+                                        <p class="my-0">Login</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{% url 'account_signup' %}" class="text-light navlink">
+                                    <div class="text-center">
+                                        <div><i class="fas fa-user-plus fa-lg" aria-hidden="true"></i></div>
+                                        <p class="my-0">Register</p>
+                                    </div>
+                             </a>
+                            </li>
+                        {% endif %}
                         <li class="list-inline-item">
                             <a href="{% url 'view_basket' %}" class="{% if grand_total %}text-info fw-bold{% else %}text-white{% endif %} nav-link">
                                 <div class="text-center">
@@ -105,9 +125,10 @@
                     {% include 'includes/main-nav.html' %}
                 </nav>
             </div> 
+
             <div id="delivery-banner" class="row text-center" role="status">
                 <div class="col bg-black text-white">
-                    <h4 class="logo-font my-1">Grab free shipping on orders over {{free_delivery_minimum}}!</h4>
+                    <h4 class="logo-font my-1">Grab free shipping on orders over {{free_shipping_threshold}}!</h4>
                 </div>
             </div> 
         </header>
@@ -126,7 +147,7 @@
         {% block page_header %}
         {% endblock %}
 
-        <main role="main">
+        <main role="main" class="main-content">
             {% block content %}
             {% endblock %}
         </main>
