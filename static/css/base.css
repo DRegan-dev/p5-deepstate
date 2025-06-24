@@ -3,12 +3,17 @@ html {
     height: 100%;
 }
 body {
-    background: url(/media/pexels-blaque-x-background-image-2.jpg) no-repeat center center fixed;
+    background: url(/media/pexels-blaque-x-background-image-2.jpgg) no-repeat center center fixed,
+    linear-gradient(135deg, #0a4f5c 0%, #1a2332 50%, #0d1b2a 100%);
     background-size: cover;
-    background-color: #000;
     height: calc(100vh - 164px);
-    color: #fff;
+    color: white;
     position: relative;
+}
+
+body.gradient-only {
+    background: linear-gradient(135deg, #0a4f5c 0%, #1a2332 50%, #0d1b2a 100%);
+    background-size: cover;
 }
 
 /* from Bulma */
@@ -24,11 +29,63 @@ body {
     text-transform: uppercase;
 }
 
+/* Particle animation */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.particle:nth-child(1) { width: 3px; height: 3px; left: 10%; top: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { width: 2px; height: 2px; left: 20%; top: 80%; animation-delay: 1s; }
+.particle:nth-child(3) { width: 4px; height: 4px; left: 60%; top: 30%; animation-delay: 2s; }
+.particle:nth-child(4) { width: 2px; height: 2px; left: 80%; top: 70%; animation-delay: 3s; }
+.particle:nth-child(5) { width: 3px; height: 3px; left: 40%; top: 10%; animation-delay: 4s; }
+.particle:nth-child(6) { width: 2px; height: 2px; left: 90%; top: 40%; animation-delay: 5s; }
+.particle:nth-child(7) { width: 3px; height: 3px; left: 30%; top: 50%; animation-delay: 6s; }
+.particle:nth-child(8) { width: 2px; height: 2px; left: 70%; top: 60%; animation-delay: 7s; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+        opacity: 0.8;
+    }
+}
+
 /* Header - Main container */
 header.container-fluid {
     background-color: rgba(0, 0, 0, 0.7) !important;
     backdrop-filter: blur(10px);
     padding: 1rem 0;
+    position: relative;
+    z-index: 100;
 }
 
 /* Logo Section */
@@ -38,6 +95,7 @@ header.container-fluid {
 
 /* Main Navigation and User Control */
 .main-nav {
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -83,7 +141,7 @@ header.container-fluid {
 }
 
 .nav-link:hover {
-    opacity: 0.8;
+    color: #4fc3f7 !important;
 }
 
 /* Shop now button */
@@ -138,7 +196,7 @@ header.container-fluid {
     top: 0;
     left: 0;
     position: fixed;
-    background: white;
+    /* background: white; */
     z-index: -1;
 }
 
@@ -153,6 +211,24 @@ a.category-badge >span.badge:hover {
     position: fixed;
     bottom: 10px;
     right: 10px;
+}
+
+.hero-text {  
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 4rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
 }
 
 .btt-link,

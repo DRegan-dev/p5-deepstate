@@ -37,6 +37,19 @@
         <title>DeepState {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
+        <div class="particles-container">
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+
         {% with user_authenticated=request.user.is_authenticated is_super_user=request.user.is_superuser %}
         <header class="container-fluid fixed-top" style="background: transparent; padding: 0 0;" role="banner">
             <div id="topnav" class="row py-lg-2 d-flex">
