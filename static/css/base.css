@@ -367,6 +367,45 @@ a.category-badge >span.badge:hover {
     text-decoration: underline;
 }
 
+.card {
+    border: none;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: 10px;
+}
+
+.card-header {
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-dark {
+    color: white;
+}
+
+.table-dark th {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-dark td {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.list-group-item {
+    padding: 1rem;
+    border: none;
+}
+
+.list-group-item:first-child {
+    border-top: none;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
 /* Responsove styles */
 /* Desktop styles (hiding mobile styles)*/
 @media (min-width: 992px) {
