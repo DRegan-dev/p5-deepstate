@@ -37,7 +37,7 @@
 </div>
 
 <!-- Recent Products -->
- <div class="card bg-dark text-white mb-4">
+<div class="card bg-dark text-white mb-4">
     <div class="card-header">
         <h5 class="mb-0">Recent Products</h5>
     </div>
@@ -49,8 +49,8 @@
                         <th>Name</th>
                         <th>SKU</th>
                         <th>Price</th>
-                        <th>Category</th>
-                        <th>Actions</th>
+                        <th>Category Actions</th>
+                        <th>Product Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,7 +59,28 @@
                         <td>{{ product.name }}</td>
                         <td>{{ product.sku }}</td>
                         <td>{{ product.price }}</td>
-                        <td>{{ product.category.name }}</td>
+                        <td>
+                            {% for category in product.categories.all %}
+                            <span class="badge bg-primary me-1">{{ category.name }}</span>
+                            <span class="badge bg-primary me-1">{{ category.name }}</span>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <select name="category_ids[]" data-product-id="{{ product.id }}" multiple style="height: 100px; width: 200px;" class="form-select">
+                                {% for category in categories %}
+                                <option value="{{ category.id }}"
+                                        {% if category in product.categories.all %}selected{% endif %}>
+                                    {{ category.name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm update-categories"
+                                    data-product-id="{{ product.id }}">
+                                <i class="fas fa-sync-alt me-1"></i> Update
+                            </button>
+                        </td>
                         <td>
                             <div class="btn-group">
                                 <a href="{% url 'admin:products_product_change' product.id %}"
@@ -78,10 +99,10 @@
             </table>
         </div>
     </div>
- </div>
+</div>
 
  <!-- Best Selling Products -->
-  <div class="card bg-dark text-white mb-4">
+<div class="card bg-dark text-white mb-4">
     <div class="card-header">
         <h5 class="mb-0">Best Selling Products</h5>
     </div>
@@ -99,5 +120,23 @@
             {% endfor %}
         </div>
     </div>
-  </div>
+</div>
+
+<!-- Quick Actions -->
+ <div class="card bg-dark text-white">
+    <div class="card-header">
+        <h5 class="mb-0">Quick Actions</h5>
+    </div>
+    <div class="card-body">
+        <div class="d-flax gap-2">
+            <a href="{% url 'admin:products_product_add' %}" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>Add Product
+            </a>
+            <a href="{% url 'admin:products_cetgory_add' %}" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>Add Category
+            </a>
+        </div>
+    </div>
+ </div>
+
 {% endblock %}

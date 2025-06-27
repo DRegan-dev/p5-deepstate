@@ -11,22 +11,36 @@ def admin_dashboard(request):
     # Get statistics
     total_products = Product.objects.count()
     total_categories = Category.objects.count()
-    total_sales = OrderLineItem.objects.aggregate(Sum(lineitem_total))['lineitem_total__sum'] or 0
+    total_sales = OrderLineItem.objects.aggregate(Sum('lineitem_total' ))['lineitem_total__sum'] or 0
 
-    #Get recent products
-    recent_products = Product.objects.orderby('-date_added')[:5]
+    #Get recent products with their categories
+    recent_products = Product.objects.prefetch_related('categories').orderby('-date_added')[:5]
 
-    # Get best-selling products
-    best_selling = OrderLineItem.objects.values('products__name').annotate(
-        total_sold=Sum('quantity')
-    ).orderby('-total_sold')[:5]
+    # Get all categories form dropdown
+    categories = Category.objects.all()
+
+    # Handle category update
+    if request.method == 'POST' and request.POST.get('action') == 'update_categories':
+        product_id = request.POST.get('product_id')
+        selected_categories = request.POST.getlist('category_ids[]')
+
+        try:
+            product = product.objects.get(pk=product_id)
+            product.categories.set(selected_categories)
+            messages.success(request, f'Successfully updated categories for {product.name}')
+        except product.DoesNotExist:
+            message.error(request, 'Product not found')
+        except Exception as e:
+            messages.error(request, f'Error updating categories: {str(e)}') 
+
+
 
     context = {
         'total_products': total_products,
         'total_categories': total_categories,
         'total_sales': total_sales,
         'recent_products': recent_products,
-        'best_selling': best_selling
+        'categories': categories
     }
 
     return render(request, 'admin_dashboard/dashboard.html', context)
