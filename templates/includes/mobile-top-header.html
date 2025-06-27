@@ -29,7 +29,7 @@
     <div class="dropdown-menu border-0" aria-labbelledby="user-options-mobile">
         {% if user.is_authenticated %}
             {% if user.is_superuser %}
-                <a href="" class="dropdown-item">Product Management</a>
+                <a href="{% url 'admin_dashboard:dashboard' %}" class="dropdown-item">Product Management</a>
             {% endif %}
             <a href="" class="dropdown-item">My Profile</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>

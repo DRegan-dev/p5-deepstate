@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="checkout-container">
+    <div class="checkout-form">
+        <form id="checkout-form"action="{% url 'checkout:checkout' %}" method="post">
+            {% csrf_token %}
+            <div class="checkout-selection">
+            <h3>Delivery Details</h3>
+                <div class="form-group">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" class="form-control" id="fullname" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="fullname" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone_number">Phone Number</label>
+                    <input type="tel" class="form-control" id="fullname" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select name="form-contrl" id="country" name="country" required>
+                        <option value="">Select Country</option>
+                        {% for code, name in COUNTRIES %}
+                            <option value="{{ code }}">{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="postcode">Postcode</label>
+                    <input type="text" class="form-control" id="postcode" name="postcode">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -14,7 +14,7 @@ def admin_dashboard(request):
     total_sales = OrderLineItem.objects.aggregate(Sum('lineitem_total' ))['lineitem_total__sum'] or 0
 
     #Get recent products with their categories
-    recent_products = Product.objects.prefetch_related('categories').orderby('-date_added')[:5]
+    recent_products = Product.objects.prefetch_related('categories').order_by('-date_added')[:5]
 
     # Get all categories form dropdown
     categories = Category.objects.all()
@@ -25,11 +25,11 @@ def admin_dashboard(request):
         selected_categories = request.POST.getlist('category_ids[]')
 
         try:
-            product = product.objects.get(pk=product_id)
+            product = Product.objects.get(pk=product_id)
             product.categories.set(selected_categories)
             messages.success(request, f'Successfully updated categories for {product.name}')
         except product.DoesNotExist:
-            message.error(request, 'Product not found')
+            messages.error(request, 'Product not found')
         except Exception as e:
             messages.error(request, f'Error updating categories: {str(e)}') 
 
