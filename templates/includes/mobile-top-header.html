@@ -32,7 +32,7 @@
                 <a href="{% url 'admin_dashboard:dashboard' %}" class="dropdown-item">Product Management</a>
             {% endif %}
             <a href="" class="dropdown-item">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            <a href="#" class="dropdown-item">Logout</a>
         {% else %}
             <a href="{% url 'accounts:register' %}" class="dropdown-item">Register</a>
             <a href="{% url 'accounts:login' %}" class="dropdown-item">Login</a>
