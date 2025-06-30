@@ -4,13 +4,14 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from basket.contexts import basket_contents
-
+from .forms import OrderForm
 import json
 
 # Create your views here.
 def checkout(request):
     """ Display the checkout page """
     basket = basket_contents(request)
+    order_form = OrderForm()
 
     basket_items = []
     for item in basket.get('basket_items', []):
@@ -23,6 +24,7 @@ def checkout(request):
         basket_items.append(item_data)
 
     context = {
+        'order_form': order_form,
         'basket_items': basket_items,
         'total': basket.get('total', 0),
         'product_count': basket.get('product_count', 0),

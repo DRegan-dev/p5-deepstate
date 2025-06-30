@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 
 {% block content %}
@@ -13,8 +14,8 @@
                 </div>
                 <div class="card-body">
                     {% for item in basket_items %}
-                        <div class="row mb-3">
-                            <div class="col-12">
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-2 mb-1">
                                 <a href="{% url 'product_detail' item.product.id %}">
                                 {% if item.product.image %}
                                     <img src="{{ item.product.image.url }}" alt="{{ product.name }}" class="w-100">
@@ -57,27 +58,46 @@
                     <h5 class="mb-0">Checkout Details</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{% url 'checkout:checkout' %}" method="POST" id="payment-form">
+                    <form action="{% url 'checkout:checkout' %}" method="POST" id="payment-form" class="align-items-center">
                         {% csrf_token %}
 
                         <!-- Personal Details -->
-                        <div class="form-group mb-4">
+                        <div class="form-group mb-4 w-100">
                             <h6>Personal Details</h6>
-                            {{ order_form.full_name.label_tag }}
-                            {{ order_form.email.label_tag }}
+                            <div class="mb-3">
+                                {{ order_form.full_name|add_class:"form-control bg-white"|attr:"placeholder:Full Name" }}
+                            </div>
+                            <div class="mb-3">
+                                {{ order_form.email|add_class:"form-control bg-white"|attr:"placeholder:Email" }}
+                            </div>
                         </div>
 
                         <!-- Delivery Details -->
                         <div class="form-group mb-4">
                             <h6>Delivery Information</h6>
-                            {{ order_form.phone_numberlabel_tag }}
-                            {{ order_form.countrylabel_tag }}
-                            {{ order_form.postcodelabel_tag}}
-                            {{ order_form.town_or_citylabel_tag }}
-                            {{ order_form.street_address1.label_tag }}
-                            {{ order_form.street_address2.label_tag}}
-                            {{ order_form.county.label_tag}}
 
+                            <div class="mb-3">
+                                {{ order_form.phone_number|add_class:"form-control bg-white"|attr:"placeholder:Phone Number" }}
+                            </div>
+                            
+                            <div class="mb-3">
+                                {{ order_form.country|add_class:"form-control bg-white"|attr:"placeholder:Country" }}
+                            </div>
+                            <div class="mb-3">
+                                {{ order_form.postcode|add_class:"form-control bg-white"|attr:"placeholder:Postcode" }}
+                            </div>
+                            <div class="mb-3">
+                                {{ order_form.town_or_city|add_class:"form-control bg-white"|attr:"placeholder:City, Town..." }}
+                            </div>
+                            <div class="mb-3">
+                                {{ order_form.street_address1|add_class:"form-control bg-white"|attr:"placeholder:Street Address 1" }}
+                            </div>
+                            <div class="mb-3">
+                                {{ order_form.street_address2|add_class:"form-control bg-white"|attr:"placeholder:Street Address 2" }}
+                            </div>
+                            <div class="mb-3">    
+                                {{ order_form.county|add_class:"form-control bg-white"|attr:"placeholder:County" }}
+                            </div>    
                             {% if user.is_authenticated %}
                                 <div class="form-check mb-3">
                                     <input type="checkbox" class="form-check-input" id="id_save_info" name="save_info" checked>

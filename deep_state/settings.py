@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'widget_tweaks',
     'home',
     'products',
     'basket',
     'accounts',
     'checkout',
+    'admin_dashboard',
 
     # Optional -- requires install using `django-allauth[socialaccount]`.
     'allauth.socialaccount',

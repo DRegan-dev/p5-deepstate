@@ -14,7 +14,7 @@ def admin_dashboard(request):
     total_sales = OrderLineItem.objects.aggregate(Sum('lineitem_total' ))['lineitem_total__sum'] or 0
 
     #Get recent products with their categories
-    recent_products = Product.objects.prefetch_related('categories').order_by('-date_added')[:5]
+    recent_products = Product.objects.select_related('category').order_by('-date_added')[:5]
 
     # Get all categories form dropdown
     categories = Category.objects.all()
