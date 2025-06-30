@@ -5,15 +5,31 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from basket.contexts import basket_contents
 from .forms import OrderForm
+from django.conf import settings
 import json
+import stripe
 
 # Create your views here.
 def checkout(request):
     """ Display the checkout page """
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
     basket = basket_contents(request)
+
     order_form = OrderForm()
 
     basket_items = []
+    total = basket['grand_total']
+    stripe_total = round(total * 100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount = stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
+
+    if not stripe_public_key:
+        messages.warning(request, "Stripe public key is missing. Did you forget to set it in your environment?")
+
     for item in basket.get('basket_items', []):
         item_data = {
             'product': item['product'],
@@ -29,7 +45,10 @@ def checkout(request):
         'total': basket.get('total', 0),
         'product_count': basket.get('product_count', 0),
         'delivery': basket.get('delivery', 0),
-        'grand_total': basket.get('grand_total', 0)
+        'grand_total': basket.get('grand_total', 0),
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
+
     }
 
     return render(request, 'checkout/checkout.html', context)

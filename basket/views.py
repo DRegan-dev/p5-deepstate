@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
-from basket.contexts import basket_contents
 # Create your views here.
 def view_basket(request):
     """ Aview that renders basket contents page """

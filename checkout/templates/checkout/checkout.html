@@ -2,6 +2,8 @@
 {% load static %}
 {% load widget_tweaks %}
 
+{% block extra_title %}<title>Checkout</title>{% endblock %}
+
 
 {% block content %}
 <div class="container">
@@ -36,7 +38,7 @@
                     {% endfor %}
                     <hr class="my-2">
                     <div class="row text-white">
-                        <div class="col-7 offset--2">
+                        <div class="col-7 offset-2">
                             <p class="mb-1">Order Total:</p>
                             <p class="mb-1">Delivery:</p>
                             <p class="mb-1"><strong>Grand Total:</strong></p>    
@@ -116,7 +118,7 @@
                         <!-- Payment Section -->
                         <div class="form-group mb-4">
                             <h6>Payment Information</h6>
-                            <div id="card-element" class="stripe-style-input mb-3"></div>
+                            <div id="card-element" class="stripe-style-input mb-3 form-control bg-white"></div>
                             <div id="card-errors" class="text-danger mb-3"></div>
                         </div>
 
@@ -146,5 +148,9 @@
 </div>
 {% endblock %}
 
-{% block extra_js %}
+{% block postloadjs %}
+    {{ block.super}}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
