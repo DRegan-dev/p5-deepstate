@@ -7,6 +7,7 @@ from basket.contexts import basket_contents
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
+from accounts.models import UserProfile
 from django.conf import settings
 import json
 import stripe
@@ -37,12 +38,12 @@ def checkout(request):
             order.order_number = order.generate_order_number()
             order.original_basket = json.dumps(basket)
 
-            client_secret = request.POST.get('client_secret')
-            if client_secret:
-                order.stripe_pid = client_secret.split('_secret')[0]
-            else:
-                order.strip_pid = ''
-            order.save()
+            if request.user.is_authenticated:
+                profile = UserProfile.objects.get_or_create(user=request.user)
+                order.user_profile  = profile
+
+            client_secret = request.POST.get('client_secret','')
+            order.stripe_pid = client_secret.split('_secret')[0] if '_secret' in client_secret else ''
 
             for item_id, item_data in basket.items():
                 try:
@@ -73,6 +74,17 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('basket:view_basket'))
                 
+            if request.user.is_authenticated and 'save_info' in request.POST:
+                profile.default_phone_number = order.phone_number
+                profile.default_country=order.country
+                profile.default_postcode=order.postcode
+                profile.default_town_or_city = order.town_or_city
+                profile.default_street_address1 = order.street_address1
+                profile.default_street_address2 = order.street_address2
+                profile.default_county = order.county
+                profile.save()
+
+                
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout:checkout_success', args=[order.order_number]))
         else:
@@ -94,7 +106,10 @@ def checkout(request):
             amount = stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
+        if not intent or not intent.client_secret:
+            messages.error(request, 'Error creating stripe payment intent')
+            return redirect(reverse('basket:basket_view'))
+        
         order_form = OrderForm()
 
         if not stripe_public_key:

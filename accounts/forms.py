@@ -47,28 +47,39 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         exclude = ('user',)
+        fields = ['default_phone_number', 'default_country', 'default_postcode',
+                  'default_town_or_city', 'default_street_address1',
+                  'default_street_address2', 'default_county']
 
-    def __init__(self, *args, **kwargs)
-        """
-        Add paceholders and classes, remove auto-generated labels and set autofocus on first field
-        """
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        placeholders = {
-            'default_phone_number': 'Phone Number',
-            'default_postcode': 'Postal Code',
-            'default_town_or_city': 'Town or City',
-            'default_street_address1': 'Street Address 1',
-            'default_street_address2': 'Street Address 2',
-            'default_county': 'County, State or Locality'
-        }
+        self.fields['default_phone_number'].widget.attrs.update({
+            'class':'form-control bg-dark text-white',
+            'placeholder': 'Phone number'
+        })
+        self.fields['default_country'].widget.attrs.update({
+            'class':'form-control bg-dark text-white',
+            'placeholder': 'Phone number'
+        })
 
-        self.fields['default_phone_number'].widget.attrs['autofocus']= True
-        for field in self.fields:
-            if field != 'default_country':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            self.fields[field].label = False
+        self.fields['default_postcode'].widget.attrs.update({
+            'class':'form-control bg-dark text-white',
+            'placeholder': 'Postal Code'
+        })
+        self.fields['default_town_or_city'].widget.attrs.update({
+            'class':'form-control bg-dark text-white',
+            'placeholder': 'Town or City'
+        })
+        self.fields['default_street_address1'].widget.attrs.update({
+            'class':'form-control bg-dark text-white',
+            'placeholder': 'Street Address 1'
+        })
+        self.fields['default_street_address2'].widget.attrs.update({
+            'class':'form-control bg-dark text-white',
+            'placeholder': 'Street Address 2'
+        })
+        self.fields['default_county'].widget.attrs.update({
+            'class':'form-control bg-dark text-white',
+            'placeholder': 'County'
+        })
+        

@@ -89,7 +89,7 @@
                                     {% if user.is_superuser %}
                                         <a href="{% url 'admin_dashboard:dashboard' %}" class="dropdown-item text-white">Product Management</a>
                                     {% endif %}
-                                    <a href="#" class="dropdown-item text-white">My Profile</a>
+                                    <a href="{% url 'accounts:profile' %}" class="dropdown-item text-white">My Profile</a>
                                     <a href="#" class="dropdown-item text-white">Logout</a>                            
                                 </div>
                             </li>
@@ -112,7 +112,7 @@
                             </li>
                         {% endif %}
                         <li class="list-inline-item">
-                            <a href="{% url 'view_basket' %}" class="{% if grand_total %}text-info fw-bold{% else %}text-white{% endif %} nav-link">
+                            <a href="{% url 'basket:view_basket' %}" class="{% if grand_total %}text-info fw-bold{% else %}text-white{% endif %} nav-link">
                                 <div class="text-center">
                                     <div><i class="fas fa-shopping-bag fa-lg" aria-hidden="true"></i></div>
                                     <p class="my-0">

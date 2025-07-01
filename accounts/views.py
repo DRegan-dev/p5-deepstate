@@ -6,6 +6,7 @@ from .models import UserProfile
 from checkout.models import Order
 from .forms import UserRegistrationForm, UserLoginForm, UserProfileForm
 from django.contrib.auth.decorators import login_required
+from .forms import UserProfileForm
 
 
 # Create your views here.
@@ -46,15 +47,22 @@ def profile(request):
     """
     Display the user's profile.
     """
-    profile = get_object_or_404(UserProfile, user=request.user)
+    print(f'entered profile view')
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
+        print(f'post request received')
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
-            form.save()
+            updated_profile = form.save(commit=False)
+            updated_profile.save()
             messages.success(request, 'Profile updated successfully')
+            print(f'Profile updated successfully')
+            return redirect('accounts:profile')
+        else:
+            messages.error(request, 'There was an error updating your profile. Please try again')
     else:
-        form = UserProfileForm(instance=profile)
+        form = UserProfileForm()
 
     orders = profile.orders.all()
 

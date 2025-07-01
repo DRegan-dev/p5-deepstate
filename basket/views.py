@@ -65,20 +65,27 @@ def adjust_basket(request, item_id):
 def remove_from_basket(request, item_id):
     """ Remove the tem from the shopping basket """
     try:
-        size = None
-        if 'product_size' in request.POST:
-            size = request.POST['product_size']
-        basket = request.session.het('basket', {})
+        basket = request.session.get('basket', {})
 
-        if size:
-            del basket[item_id]['item_by_size'][size]
-            if not basket[item_id]['items_by_size']:
-                basket.pop(item_id)
-        else:
-            basket.pop(item_id)
+        if item_id in basket:
+            if isinstance(basket[item_id],dict):
+                size = request.POST.get('size')
+                if size:
+                    if size in basket[item_id]['items_by_size']:
+                        del basket[item_id][size]
+                        if not basket[item_id]['items_by_size']:
+                            del basket[item_id]
+                else:
+                    del basket[item_id]
+            else:
+                del basket[item_id]
 
-        request.sesssion['basket'] = basket
-        return HttpResponse(status=200)
-    
+            request.session['basket'] = basket
+            return HttpResponse(status=200)
+
+        return HttpResponse(status=404)
+
     except Exception as e:
-        return HttpResponse(status=500)
+        print(f"Error in remove_from_basket: {str(e)}")
+        return HttpResponse(status=500)                             
+        

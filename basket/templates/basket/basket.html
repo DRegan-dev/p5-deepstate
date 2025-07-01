@@ -56,7 +56,7 @@
                                         <p class="my-0">${{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form method="POST" class="form update-form" action="{% url 'adjust_basket' item.item_id %}">
+                                        <form method="POST" class="form update-form" action="{% url 'basket:adjust_basket' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -153,7 +153,9 @@
             const csrfToken = "{{ csrf_token }}";
             const itemId = this.id.split('remove_')[1];
             const size = this.dataset.size;
-            const url = `/basket/remove/${itemId}/`;
+            console.log('Attempting')
+            const url = "{% url 'basket:remove_from_basket' '0' %}".replace('0', itemId)
+            console.log('URL:', url);
 
             fetch(url, {
                 method: 'POST',
