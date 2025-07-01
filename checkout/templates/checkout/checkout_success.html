@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/heckout_success.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="card bg-dark text-white mb-4">
+                <div class="card-header">
+                    <h2 class="mb-0">Thank You!</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="order-confirmation">
+                                <h3 class="mb-4">Order Confirmation</h3>
+                                <p class="mb-3">Your order has been successfully processed!</p>
+                                <p class="mb-3"><strong>Order Number:</strong> {{ order.order_number }}</p>
+                                <p class="mb-3"><strong>Order Date:</strong> {{ order.date }}</p>
+                                <p class="mb-3"><strong>Total Amount:</strong> {{ order.grand_total }}</p>
+
+                                {% if order.save_info %}
+                                    <p class="mb-3 text-success">
+                                        <i class="fas fa-check-circle me-2">
+                                            Your delivery information has been saved to your profile
+                                        </i>
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="order-details">
+                                <h3 class="mb-4">Order Details</h3>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <p class="mb-1"><strong>Name:</strong></p>
+                                        <p class="mb-1"><strong>Email:</strong></p>
+                                        <p class="mb-1"><strong>Phone:</strong></p>
+                                        <p class="mb-1"><strong>Address:</strong></p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="mb-1">{{ order.full_name }}</p>
+                                        <p class="mb-1">{{ order.email }}</p>
+                                        <p class="mb-1">{{ order.phone_number }}</p>
+                                        <p class="mb-1">
+                                            {{ order.street_address1}}<br>
+                                            {% if order.street_address2 %}
+                                                {{ order.street_address2 }}
+                                            {% endif %}
+                                            {{ order.town_or_city }}
+                                            {% if order.county %}
+                                                {{ order.county }}
+                                            {% endif %}
+                                            {% if order.postcode %}
+                                                {{ order.postcode }}
+                                            {% endif %}
+                                            {{ order.country }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <h3 class="mb-4">What's Next?</h3>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="card bg-dark text-white mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Track your Order</h5>
+                                    <p class="card-text">You can track your order status in your profile</p>
+                                    <a href="#" class="btn btn-primary">
+                                        <i class="fas fa-user me-2"></i>View Profile
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card bg-dark text-white mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Shop More</h5>
+                                    <p class="card-text">Continue shopping for more great products.</p>
+                                    <a href="#" class="btn btn-primary">
+                                        <i class="fas fa-shopping-cart me-2">Continue Shopping</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

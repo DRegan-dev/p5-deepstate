@@ -6,7 +6,7 @@ body {
     background: url(/media/pexels-blaque-x-background-image-2.jpgg) no-repeat center center fixed,
     linear-gradient(135deg, #0a4f5c 0%, #1a2332 50%, #0d1b2a 100%);
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: calc(100vh - 100%);
     color: white;
     position: relative;
 }
@@ -410,6 +410,6 @@ a.category-badge >span.badge:hover {
 /* Desktop styles (hiding mobile styles)*/
 @media (min-width: 992px) {
     .header-container {
-        padding-top: 110px;
+        
     }
 }

@@ -87,10 +87,10 @@
                                 </a>
                                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                     {% if user.is_superuser %}
-                                        <a href="{% url 'admin_dashboard:dashboard' %}" class="dropdown-item">Product Management</a>
+                                        <a href="{% url 'admin_dashboard:dashboard' %}" class="dropdown-item text-white">Product Management</a>
                                     {% endif %}
-                                    <a href="#" class="dropdown-item">My Profile</a>
-                                    <a href="#" class="dropdown-item">Logout</a>                            
+                                    <a href="#" class="dropdown-item text-white">My Profile</a>
+                                    <a href="#" class="dropdown-item text-white">Logout</a>                            
                                 </div>
                             </li>
                         {% else %}
@@ -139,8 +139,8 @@
                 </nav>
             </div> 
 
-            <div id="delivery-banner" class="row text-center" role="status">
-                <div class="col bg-black text-white">
+            <div id="delivery-banner" class="row text-center bg-green" role="status">
+                <div class="col bg-success text-white">
                     <h4 class="logo-font my-1">Grab free shipping on orders over {{free_shipping_threshold}}!</h4>
                 </div>
             </div> 
