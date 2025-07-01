@@ -190,6 +190,10 @@ header.container-fluid {
     letter-spacing: 0.5px;
 }
 
+.main-content {
+    padding-top: 350px;
+}
+
 .overlay {
     height: 100%;
     width:100%;

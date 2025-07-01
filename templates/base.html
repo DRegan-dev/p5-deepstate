@@ -22,7 +22,7 @@
         {% block extra_css %}
         <style>
             .main-content {
-                padding-top: 100px;
+                padding-top: 350px;
                 min-height: calc(100vh - 100px);
             }
         </style>
@@ -51,18 +51,18 @@
         </div>
 
         {% with user_authenticated=request.user.is_authenticated is_super_user=request.user.is_superuser %}
-        <header class="container-fluid fixed-top" style="background: transparent; padding: 0 0;" role="banner">
+        <header class="w-100 fixed-top" style="background: linear-gradient(135deg, #0a4f5c 0%, #1a2332 50%, #0d1b2a 100%);" role="banner">
             <div id="topnav" class="row py-lg-2 d-flex">
                 <!-- Logo Section -->
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
+                <div class="col-12 col-lg-4 my-auto py-2 py-lg-0 text-center text-md-start">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link" aria-label="DeepState Home">
                         <span class="logo-font text-white my-0"><h2>Deep<strong>State</strong></h2></span>
                     </a>
                 </div>
                 <!-- Main Navigation and User Controls -->
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <div class="col-12 col-lg-4 my-auto py-2 py-lg-0">
                     <!-- Search form -->
-                    <form action="{% url 'products' %}" method="get" class="search-form" role="search">
+                    <form action="{% url 'products' %}" method="get" class="search-form w-100" role="search">
                         {% csrf_token %}
                         <div class="input-group w-100">
                             <input type="text" class="form-control border border-dark rounded-0 bg-white" name="q" placeholder="Search items..." aria-label="Enter search terms fro products">
@@ -76,7 +76,7 @@
                 </div>
                 <!-- User Account & Shopping Bag -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                    <ul class="list-inline list-unstyled text-center text-lg-end my-0">
+                    <ul class="list-inline list-unstyled text-center text-md-end my-0 d-flex justify-content-center justify-content-md-end flex-wrap">
                         {% if user.is_authenticated %}
                             <li class="list-inline-item dropdown">
                                 <a href="#" class="text-light nav-link" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -128,20 +128,22 @@
                     </ul>
                 </div>
             </div>  
-            <div class="row bg-black">
-                <nav class="navbar navbar-expand-lg navbar-dark w-100" role="navigation">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" 
-                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    {% include 'includes/mobile-top-header.html' %}
-                    {% include 'includes/main-nav.html' %}
-                </nav>
+            <div class="row bg-black mx-0">
+                <div class="col-12 px-0">
+                    <nav class="navbar navbar-expand-lg navbar-dark w-100" role="navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" 
+                        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <!-- {% include 'includes/mobile-top-header.html' %} -->
+                        {% include 'includes/main-nav.html' %}
+                    </nav>
+                </div>
             </div> 
 
-            <div id="delivery-banner" class="row text-center bg-green" role="status">
-                <div class="col bg-success text-white">
-                    <h4 class="logo-font my-1">Grab free shipping on orders over {{free_shipping_threshold}}!</h4>
+            <div id="delivery-banner" class="row text-center bg-green mx-0" role="status">
+                <div class="col bg-success text-white py-2">
+                    <h4 class="logo-font my-1 h5">Grab free shipping on orders over {{free_shipping_threshold}}!</h4>
                 </div>
             </div> 
         </header>
