@@ -33,7 +33,10 @@ SECRET_KEY = 'django-insecure-n-*xrq1)j85klwi*a%6zww$e+(6y5bs3vmsot8y4kzqo_a=nh)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1', # vscode preview
+    'localhost', # listen for stripe webooks
+]
 
 
 # Application definition
@@ -182,3 +185,4 @@ STANDARD_DELIVERY_PERCENTAGE = 1
 STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+Stripe_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
