@@ -140,3 +140,50 @@
  </div>
 
 {% endblock %}
+
+{% block postloadjs %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const updateButtons = document.querySelectorAll('.update-categories');
+
+        updateButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('data-product-id');
+                const select = document.querySelector(`select[data-product-id='${productId}']`);
+                const selectedOptions = Array.from(select.selectedOptions).map(option => option.value);
+
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+                fetch("", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': csrfToken,
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: new URLSearchParams({
+                        action: "update_categories",
+                        product_id: productId,
+                        ...selectedOptions.reduce((acc, id) => {
+                            acc["category_ids[]"] = acc["category_ids[]"] || [];
+                            acc["category_ids[]"].push(id);
+                            return acc;
+                        }, {})
+                    })
+
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.text();
+                })
+                .then(html => {
+                    location.reload();
+                })
+                .catch(error => {
+                    alert('Error updating categories: ' + error)
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}

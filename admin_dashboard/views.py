@@ -28,7 +28,7 @@ def admin_dashboard(request):
             product = Product.objects.get(pk=product_id)
             product.categories.set(selected_categories)
             messages.success(request, f'Successfully updated categories for {product.name}')
-        except product.DoesNotExist:
+        except Product.DoesNotExist:
             messages.error(request, 'Product not found')
         except Exception as e:
             messages.error(request, f'Error updating categories: {str(e)}') 
