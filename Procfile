@@ -1,1 +1,1 @@
-web: gunicorn deepstate.wsgi:application
+web: gunicorn deep_state.wsgi:application
