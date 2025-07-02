@@ -38,7 +38,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1', # vscode preview
     'localhost', # listen for stripe webooks
-    'https://deepstate-1fb665dee7a2.herokuapp.com/',
+    '*.herokuapp.com',
 ]
 
 
