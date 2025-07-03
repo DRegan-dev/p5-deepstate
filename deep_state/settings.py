@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-SECRET_KEY = 'django-insecure-n-*xrq1)j85klwi*a%6zww$e+(6y5bs3vmsot8y4kzqo_a=nh)'
+# SECRET_KEY = 'django-insecure-n-*xrq1)j85klwi*a%6zww$e+(6y5bs3vmsot8y4kzqo_a=nh)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -38,6 +38,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1', # vscode preview
     'localhost', # listen for stripe webooks
+    'deepstate.herokuapp.com'
     '*.herokuapp.com',
 ]
 
@@ -182,6 +183,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+WHITENOISE_USE_FINDERS = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -198,4 +201,4 @@ STANDARD_DELIVERY_PERCENTAGE = 1
 STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
-Stripe_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
