@@ -51,7 +51,7 @@
 
                     <p class="mt-3 text-white">{{ product.description }}</p>
 
-                    <form action="{% url 'add_to_basket' product.id %}" class="form" method="POST">
+                    <form action="{% url 'basket:add_to_basket' product.id %}" class="form" method="POST">
                         {% csrf_token %}
                         <div class="row">
                             {% with product.has_sizes as s %}
