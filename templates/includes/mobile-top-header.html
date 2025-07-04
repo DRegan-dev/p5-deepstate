@@ -6,7 +6,7 @@
         </div>
     </a>
     <div class="dropdown-menu border-0 border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
-        <form action="{% url 'products' %}" method="get" class="form">
+        <form action="{% url 'products:products' %}" method="get" class="form">
             {% csrf_token %}
             <div class="input-group w-100">
                 <input type="text" class="form-control border border-dark rounded-0" name="q" placeholder="Search items...">

@@ -62,7 +62,7 @@
                 <!-- Main Navigation and User Controls -->
                 <div class="col-12 col-lg-4 my-auto py-2 py-lg-0">
                     <!-- Search form -->
-                    <form action="{% url 'products' %}" method="get" class="search-form w-100" role="search">
+                    <form action="{% url 'products:products' %}" method="get" class="search-form w-100" role="search">
                         {% csrf_token %}
                         <div class="input-group w-100">
                             <input type="text" class="form-control border border-dark rounded-0 bg-white" name="q" placeholder="Search items..." aria-label="Enter search terms fro products">

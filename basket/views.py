@@ -60,7 +60,7 @@ def adjust_basket(request, item_id):
             basket.pop(item_id)
 
     request.session['basket'] = basket
-    return redirect(reverse('view_basket'))
+    return redirect(reverse('basket:view_basket'))
 
 def remove_from_basket(request, item_id):
     """ Remove the tem from the shopping basket """

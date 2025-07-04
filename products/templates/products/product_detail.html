@@ -33,7 +33,7 @@
                     <p class="fs-5 mb-0 text-start fw-bold">${{ product.price }}</p>
                     {% if product.category %}
                         <p class="small mt-1 mb-0">
-                            <a href="{% url 'products' %}?category={{ product.category.name }}" class="text-white">
+                            <a href="{% url 'products:products' %}?category={{ product.category.name }}" class="text-white">
                                 <i class="fas fa-tag me-1"></i>{{ product.category.friendly_name }}
                             </a>
                         </p>
@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="col-12 mt-3">
-                                <a href="{% url 'products' %}" class="btn btn-outline-primary">
+                                <a href="{% url 'products:products' %}" class="btn btn-outline-primary">
                                     <i class="fas fa-chevron-left me-2"></i>Back to Products
                                 </a>
                                 <button type="submit" class="btn btn-success ms-2">
