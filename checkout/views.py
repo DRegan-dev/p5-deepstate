@@ -39,11 +39,13 @@ def checkout(request):
             order.original_basket = json.dumps(basket)
 
             if request.user.is_authenticated:
-                profile = UserProfile.objects.get_or_create(user=request.user)
+                profile, created = UserProfile.objects.get_or_create(user=request.user)
                 order.user_profile  = profile
 
             client_secret = request.POST.get('client_secret','')
             order.stripe_pid = client_secret.split('_secret')[0] if '_secret' in client_secret else ''
+
+            order.save()
 
             for item_id, item_data in basket.items():
                 try:
