@@ -15,50 +15,78 @@
                 </div>
                 <div class="card-body">
                     {% if orders %}
-                        <div class="table-responsive">
-                            <table class="table table-dark table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Order Number</th>
-                                        <th>Date</th>
-                                        <th>Items</th>
-                                        <th>Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for order in orders %}
-                                        <tr>
-                                            <td>
-                                                <a href="{% url 'checkout:checkout_success' order.order_number %}" class="text-white">
-                                                    {{ order.order_number }}
-                                                </a>
-                                            </td>
-                                            <td>{{ order|date:"d/m/y" }}</td>
-                                            <td>
+                        <div class="overflow-auto" style="max-height: 300px;">                            
+                            {% for order in orders %}
+                            <div class="card bg-secondary text-white mb-3">
+                                <div class="card-header bg-dark">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <strong>Order #:</strong><br>
+                                            <a href="{% url 'checkout:checkout_success' order.order_number %}" class="text-white text-decoration-none">
+                                                {{ order.order_number }}
+                                            </a>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <strong>Date:</strong><br>
+                                            {{ order.date|date:"d/m/Y" }}
+                                        </div>
+                                        <div class="col-md-3">
+                                            <strong>Items:</strong><br>
+                                            {{ order.lineitems.count }} items
+                                        </div>
+                                        <div class="col-md-3">
+                                            <strong>Total:</strong>
+                                            ${{ order.grand_total|floatformat:2 }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="bg-dark p-3 rounded">
+                                                <h6 class="mb-3"><i class="fas fa-box"></i> Items Ordered</h6>
                                                 <ul class="list-unstyled mb-0">
                                                     {% for item in order.lineitems.all %}
-                                                        <li>{{ item.product.name }} X {{ item.quantity }}</li>
+                                                    <li class="mb-2">
+                                                        <strong>{{ item.product.name }}</strong>
+                                                        {% if item.product_size %}
+                                                        <span class="badge bg-primary">{{ item.product_size }}</span>
+                                                        {% endif %}
+                                                        <br>
+                                                        <small class="text-white">Quantity: {{ item.quantity }} * {{ item.product.price }}</small>
+                                                    </li>
                                                     {% endfor %}
                                                 </ul>
-                                            </td>
-                                            <td>{{ order.lineitems.count }} items</td>
-                                            <td>${{ order.grand_total|floatformat:2 }}</td>
-                                        </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="bg-dark p-3 rounded">
+                                                <h6 class="mb-3"><i class="fas fa-truck"></i> Delivery Details</h6>
+                                                <div class="row">
+                                                    <div class="col-12 mb-3">
+                                                        <strong>{{ order.full_name }}</strong><br>
+                                                        <small class="text-white">{{ order.email }}</small><br>
+                                                        <small class="text-white">{{ order.phone_number }}</small>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <strong>Delivery Address:</strong><br>
+                                                        {% if order.street_address1 %}{{ order.street_address1 }}<br>{% endif %}
+                                                        {% if order.street_address2 %}{{ order.street_address2 }}<br>{% endif %}
+                                                        {% if order.town_or_city %}{{order.town_or_city }}{% endif %}
+                                                        {% if order.county %}{{ order.county }}{{ endif }}
+                                                        {% if order.town_or_city or order.county %}<br>{% endif %}
+                                                        {% if order.postcode %}{{ order.postcode }}<br>{% endif %}
+                                                        {{ order.country }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
                         </div>
                     {% else %}
-                        <div class="text-center py-4">
-                            <i class="fas fa-shopping-bag fa-3x text-white mb3"></i>
-                            <p class="text-center text-white">No Orders found.</p>
-                            <p class="text-white">When you make your first purchase it will appear here.</p>
-                            <a href="{% url 'products:products' %}" class="btn btn-primary mt-3">Start Shopping</a>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}

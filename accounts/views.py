@@ -54,8 +54,7 @@ def profile(request):
         print(f'post request received')
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
-            updated_profile = form.save(commit=False)
-            updated_profile.save()
+            form.save()
             messages.success(request, 'Profile updated successfully')
             print(f'Profile updated successfully')
             return redirect('accounts:profile')
@@ -64,7 +63,7 @@ def profile(request):
     else:
         form = UserProfileForm()
 
-    orders = profile.orders.all()
+    orders = profile.orders.all().order_by('-date')
 
     template = 'accounts/profile.html'
     context = {
