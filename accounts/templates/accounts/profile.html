@@ -18,7 +18,7 @@
                         <div class="overflow-auto" style="max-height: 300px;">                            
                             {% for order in orders %}
                             <div class="card bg-secondary text-white mb-3">
-                                <div class="card-header bg-dark">
+                                <div class="card-header bg-dark bg-gradient">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <strong>Order #:</strong><br>
@@ -41,10 +41,10 @@
                                     </div>
                                 </div>
 
-                                <div class="card-body">
+                                <div class="card-body" style="background: linear-gradient(135deg, #0a4f5c 0%, #1a2332 50%, #0d1b2a 100%);">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="bg-dark p-3 rounded">
+                                            <div class="bg-dark bg-gradient p-3 rounded">
                                                 <h6 class="mb-3"><i class="fas fa-box"></i> Items Ordered</h6>
                                                 <ul class="list-unstyled mb-0">
                                                     {% for item in order.lineitems.all %}
@@ -75,7 +75,7 @@
                                                         {% if order.street_address1 %}{{ order.street_address1 }}<br>{% endif %}
                                                         {% if order.street_address2 %}{{ order.street_address2 }}<br>{% endif %}
                                                         {% if order.town_or_city %}{{order.town_or_city }}{% endif %}
-                                                        {% if order.county %}{{ order.county }}{{ endif }}
+                                                        {% if order.county %}{{ order.county }}{% endif %}
                                                         {% if order.town_or_city or order.county %}<br>{% endif %}
                                                         {% if order.postcode %}{{ order.postcode }}<br>{% endif %}
                                                         {{ order.country }}
@@ -89,4 +89,16 @@
                             {% endfor %}
                         </div>
                     {% else %}
+                        <div class="text-center py-4">
+                            <i class="fas fa-shopping fa-3x text-white mb-3"></i>
+                            <p class="text-center text-white">No Orders found.</p>
+                            <p class="text-white">When you make your first purchase it will appear here.</p>
+                            <a href="{% url 'products:products' %}" class="btn btn-primary mt-3">Start Shopping</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
 {% endblock %}
