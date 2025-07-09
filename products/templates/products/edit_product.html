@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="h3 mb-0">Edit Prodiuct</h1>
+            <a href="{% url 'admin_dashboard' %}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+<div class="form-container">
+    <div class="card shadow">
+        <div class="card-body">
+            <form enctype="multipart/form-data" method="post" id="editProductForm">
+                {% csrf_token %}
+
+                <!-- Product Name -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Product Name <span class="text-danger">*</span></label>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ product.name }}" required maxlength="254">
+                    <div class="form-text">Maximum 254 characters</div>
+                </div>
+
+                 <!-- SKU -->
+                <div class="mb-3">
+                    <label for="sku" class="form-label">SKU</label>
+                    <input type="text" name="sku" id="sku" class="form-control" value="{{ product.sku|default:'' }}" maxlength="254">
+                    <div class="form-text">Maximum 254 characters</div>
+                </div>
+
+                <!-- Category -->
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select name="category" id="category" class="form-select">
+                        <option value="">Select Category</option>
+                        {% for category in categories %}
+                            <option value="{{ category.id }}" {% if product.category.id == category.id %}selected{% endif %}>
+                                {{ category.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
+                    <textarea name="description" id="description" class="form-control" rows="5" required>{{ product.description }}</textarea>
+                    <div class="form-text">Detailed product description</div>
+                </div>
+
+                <!-- Price -->
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="number" name="price" id="price" class="form-control" value="{{ product.price }}" step="0.01" min="0" max="9999.99" required>
+                    </div>
+                    <div class="form-text">Maximum $9999.99</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Rating</label>
+                    <div class="rating-stars" id="ratingStars">
+                        <span class="rating-star" data-rating="1">*</span>
+                        <span class="rating-star" data-rating="2">*</span>
+                        <span class="rating-star" data-rating="3">*</span>
+                        <span class="rating-star" data-rating="4">*</span>
+                        <span class="rating-star" data-rating="5">*</span>
+                    </div>
+                    <input type="hidden" name="rating" id="rating" value="{{ product.rating }}">
+                    <div class="form-text">Click starts to set rating (1-5)</div>
+
+                <!-- Current Image -->
+                {% if product.image %}
+                <div class="current-image-section">
+                    <label class="form-label">Current Image</label>
+                    <div class="d-flex align-items-start gap-3">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="image-preview" id="currentImage">
+                        <div>
+                            <p class="mb-2"><strong>{{ product.image.name }}</strong></p>
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeCurrentImage()">
+                                <i class="fas fa-trash"></i> Remove Current Image
+                            </button>
+                            <input type="hidden" name="remove_image" id="remove image" value="false">
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                    <!-- Image Upload -->
+                <div class="mb-3">
+                    <label for="image" class="form-label">
+                        {% if product.image %}Replace Image{% else %}Product Image{% endif %}
+                    </label>
+                    <div class="image-upload-area" id="imageUploadArea">
+                        <i class="fas fa-cloud-upload-alt fa-3x text-white mb-3"></i>
+                        <p class="mb-2">Drag & drop an image here, or click to select</p>
+                        <input type="file" name="form-control" id="image" name="image" accept="image/*" style="display: none;">
+                        <button type="button" class="btn btn-outline-primary" onclick="document.getElementById('image').click()">
+                            Choose Image
+                            /button>
+                    </div>
+                        <div class="form-text">Supported formats: JPG, PNG, GIF. Max Size: 5MB</div>
+                        <div class="mt-3" id="imagePreview" style="display: none;">
+                        <img  alt="Preview" id="previewImg" class="image-preview">
+                        <button type="button" class="btn btn-outline-danger btn-sm d-block" onclick="clearImagePreview()">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+
+                    <!-- Submit Button -->
+                <div class="d-flex gap-2 justify-content-end">
+                    <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Changes
+                     </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Noifications -->
+ <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="successToast" class="toast" role="alert">
+        <div class="toast-header bg-success text-white">
+            <i class="fas fa-check-circle me-2"></i>
+            <strong class="me-auto">Success</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body"></div>
+    </div>
+
+    <div class="errorToast toast" role="alert">
+        <div class="toast-header bg-danger text-white">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <strong class="me-auto">Error</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body"></div>
+    </div>
+ </div>
+{% endblock %}
+
+{% block postloadjs %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Rating stars functionality
+        const ratingStars = document.querySelectorAll('.rating-star');
+        const ratingInput = document.getElementById('rating');
+        const currentRating = parseFloat(ratingInput.value) || 0;
+
+        updateStarDisplay(currentRating);
+
+        ratingStars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.dataset.rating);
+                ratingInput.value = rating;
+                updateStarDisplay(rating);
+            });
+
+            star.addEventListener('mouseover', function() {
+                const rating = parseInt(this.dataset.rating);
+                updateStarDisplay(rating);
+            });
+        });
+
+        document.getElementById('ratingStars').addEventListener('mouseleave', function() {
+            const currentRating = parseFloat(ratingInput.value) || 0;
+            updateStarDisplay(currentRating);
+        });
+
+        function updateStarDisplay(rating) {
+            ratingStars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        const imageInput = document.getElementById('image');
+        const imageUploadArea = document.getElementById('imageUploadArea');
+        const imagePreview = document.getElementById('imagePreview');
+        const previewImg = document.getElementById('previewImg');
+
+        imageUploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('dragover');
+        });
+
+        imageUploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.classList.add('dragover');
+        });
+
+        imageUploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.add('dragover');
+
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleImageFile(files[0]);
+            }
+        });
+
+        imageInput.addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                handleImageFile(e.target.files[0]);
+            }
+        });
+
+        function handleImageFile(file) {
+            if (!file.type.startWith('image/')) {
+                showToast('error', 'Please select an image file');
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                showToast('error', 'Image size must be less than MB');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImg.src = e.target.result;
+                imagePreview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        //  Toast functionality
+        function showToast(type, message) {
+            const toastElement = document.getElementById(type + 'Toast');
+            const toastBody = toastElement.querySelector('.toast-body');
+            toastBody.textContent = message;
+
+            const toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        }
+
+        // Form Valiation 
+        document.getElementById('editProductForm').addEventListener('submit', function(e) {
+            const name = document.getElementById('name').value.trim();
+            const description - document.getElementById('description').value.trim();
+            const price = document.getElementById('price').value;
+
+            if (!name) {
+                e.preventDefault();
+                showToast('error', 'Product name is required');
+                return
+            }   
+
+            if (!description) {
+                e.preventDefault();
+                showToast('error', 'Product description is required');
+                return
+            }
+
+            if (!price) {
+                e.preventDefault();
+                showToast('error', 'Please enter a valid price');
+                return
+            }
+        });
+    });
+
+    function clearImagePreview() {
+        document.getElementById('image').value = '';
+        document.getElementById('imagePreview').style.display = 'none';
+    }
+
+    function removeCurrentImage() {
+        document.getElementById('remove_image').value = true;
+        document.getElementById('currentImage').style.display = 'none';
+        document.querySelector('.current-image-section').style.display = 'none';
+    }
+</script>
+{% endblock %}

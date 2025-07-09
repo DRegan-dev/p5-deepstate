@@ -90,7 +90,7 @@
                                         <a href="{% url 'admin_dashboard:dashboard' %}" class="dropdown-item text-white">Product Management</a>
                                     {% endif %}
                                     <a href="{% url 'accounts:profile' %}" class="dropdown-item text-white">My Profile</a>
-                                    <a href="#" class="dropdown-item text-white">Logout</a>                            
+                                    <a href="{% url 'accounts:logout' %}" class="dropdown-item text-white">Logout</a>                            
                                 </div>
                             </li>
                         {% else %}
