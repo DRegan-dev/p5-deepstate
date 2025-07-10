@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h2">Your Profile</h1>
+        <h1 class="h2">Hi {{ request.user.username }}</h1>
         <small class="text-white">Last updated: {% now "F j, Y H:i" %}</small>
     </div>
          <!-- Order History -->

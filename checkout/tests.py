@@ -9,34 +9,35 @@ import json
 class CheckoutViewsTest(TestCase):
     def setup(self):
         # Create test user
-        self.user - User.objects.create_user(
-            username='testuser',
-            password='testpassword'
-        )
+       self.client = Client()
+       self.checkout_url = reverse('checkout:checkout')
+       self.order_data = {
+           'full_name': 'Jane Doe',
+           'email': 'jane@example',
+           'phone_number': '123456789',
+           'country': 'IE',
+           'postcode': 'D01 F5P2',
+           'town_or_city': 'Dublin',
+           'street_address1': '456 main street',
+           'street_address2': '',
+           'county': 'Dublin',
+       }
 
-        self.product = Product.objects.create(
-            name='Test Product',
-            description ='Test Product',
-            price = 10.00,
-            sku='TESTSKU'
-        )
+    def test_checkout_page_loads(self):
+        response = self.client.get(self.checkout_url)
+        seld.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'checkout/checkout.html')
 
-        self.order = Order.objects.create(
-            full_name='Test User',
-            email='test@example.com',
-            phone_number='1234567890',
-            country='US',
-            postcode=12345,
-            town_or_city='Test City',
-            street_address1= '123 Test St'
-            stripe_pid='pid_test'
-        )
+    def test_post_checkout_creates_order(self):
+        session = self.client.session
+        session['basket'] = {
+            '1': {'quantity': 1, 'product_size': 'M'}
+        }
+        session.save()
 
-        self.order_line_item = OrderLineItem.objects.create(
-            order=self.order,
-            product=self.product,
-            quantity=2,
-            lineitem_total=20.00
-        )
+        response = self.client.post(self.checkout_url, self.order_data)
+        self.assertEqual(response.status_code, 302)
 
-        self.client = Client()
+        orders = Order.objects.all()
+        self.assertEqual(orders.count(), 1)
+        self.assertEqual(orders.first().full_name, 'Jane Doe')

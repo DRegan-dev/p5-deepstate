@@ -1,0 +1,419 @@
+/* Global page styling */
+html {
+    height: 100%;
+}
+body {
+    background: url(/media/pexels-blaque-x-background-image-2.jpgg) no-repeat center center fixed,
+    linear-gradient(135deg, #0a4f5c 0%, #1a2332 50%, #0d1b2a 100%);
+    background-size: cover;
+    height: calc(100vh - 100%);
+    color: white;
+    position: relative;
+}
+
+body.gradient-only {
+    background: linear-gradient(135deg, #0a4f5c 0%, #1a2332 50%, #0d1b2a 100%);
+    background-size: cover;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+/* Particle animation */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.particle:nth-child(1) { width: 3px; height: 3px; left: 10%; top: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { width: 2px; height: 2px; left: 20%; top: 80%; animation-delay: 1s; }
+.particle:nth-child(3) { width: 4px; height: 4px; left: 60%; top: 30%; animation-delay: 2s; }
+.particle:nth-child(4) { width: 2px; height: 2px; left: 80%; top: 70%; animation-delay: 3s; }
+.particle:nth-child(5) { width: 3px; height: 3px; left: 40%; top: 10%; animation-delay: 4s; }
+.particle:nth-child(6) { width: 2px; height: 2px; left: 90%; top: 40%; animation-delay: 5s; }
+.particle:nth-child(7) { width: 3px; height: 3px; left: 30%; top: 50%; animation-delay: 6s; }
+.particle:nth-child(8) { width: 2px; height: 2px; left: 70%; top: 60%; animation-delay: 7s; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+        opacity: 0.8;
+    }
+}
+
+/* Header - Main container */
+header.container-fluid {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: relative;
+    z-index: 100;
+}
+
+/* Logo Section */
+.main-logo-link {
+    width: fit-content;
+}
+
+/* Main Navigation and User Control */
+.main-nav {
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+/* Search form */
+
+.search-form .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgbe(255, 255, 255, 0.2);
+    color: white;
+}
+
+.search-form .btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-form .btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* User dropdown menu */
+.dropdown-menu {
+    background-color: #121212;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: e0e0e0;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Nav links styling base.html */
+.nav-link {
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4fc3f7 !important;
+}
+
+/* Shop now button */
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+    border: 1px solid white;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background: #222;
+    color: white;
+}
+
+/* Bootstrap button overides */
+
+.btn-dark {
+    background-color: #212529;
+    border-color: #212529;
+    transition: all 0.3 ease;
+}
+
+.btn-dark:hover {
+    background-color: #000;
+    border-color: #000;
+}
+
+.btn-outline-dark {
+    background: black;
+    color: white !important;
+    border: 1px solid white;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:active,
+.btn-outline-dark:focus {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.main-content {
+    padding-top: 350px;
+}
+
+.overlay {
+    height: 100%;
+    width:100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    /* background: white; */
+    z-index: -1;
+}
+
+a.category-badge >span.badge:hover {
+    background: lightgrey !important;
+    color: black !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.hero-text {  
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 4rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 12px 24px;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.auth-container {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.auth-card {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.auth-title {
+    text-align: center;
+    margin-bottom: 2px;
+    color: white;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    background:  rgba(220, 53, 69, 0.1);
+    border-radius: 5px;
+}
+
+.auth-button {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.auth-button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.8);
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.auth-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.card {
+    border: none;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: 10px;
+}
+
+.card-header {
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-dark {
+    color: white;
+}
+
+.table-dark th {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-dark td {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.list-group-item {
+    padding: 1rem;
+    border: none;
+}
+
+.list-group-item:first-child {
+    border-top: none;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+/* Responsove styles */
+/* Desktop styles (hiding mobile styles)*/
+@media (min-width: 992px) {
+    .header-container {
+        
+    }
+}

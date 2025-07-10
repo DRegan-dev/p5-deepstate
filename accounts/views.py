@@ -19,16 +19,18 @@ def login_view(request):
         print(f'Form errors: {form.errors}')
 
         if form.is_valid():
-            print("Form is valid")
+            print("Form is valid atempting login")
             print(f'Form data: { form.cleaned_data if form.is_bound else "Not Bound"}')
             user = form.get_user()
             user.backend = 'django.contrib.auth.backends.ModelBackend'
             login(request, user)
-            messages.success(request, 'Successfully logged in!')
+            print(f"User {user.username} successfully logged in")
+            messages.success(request, f"Welcome back, {user.username}")
             return redirect('home')
         else:
             messages.error(request, 'Invalid username or password')
     else:
+        print("=== LOGIN GET REQUEST ===")
         form = UserLoginForm()
 
     return render(request, 'accounts/login.html', {'form': form})
