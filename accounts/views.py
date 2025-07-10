@@ -5,10 +5,10 @@ from django.contrib import messages
 from .models import UserProfile
 from checkout.models import Order
 from .forms import UserRegistrationForm, UserLoginForm, UserProfileForm
-from django.contrib.auth.decorators import login_required
 
 
-class
+
+
 # Create your views here.
 def login_view(request):
     if request.method == 'POST':
