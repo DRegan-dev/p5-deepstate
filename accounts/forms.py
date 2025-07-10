@@ -27,11 +27,15 @@ class UserRegistrationForm(UserCreationForm):
 
         self.fields['password1'].widget.attrs.update({
             'class': 'form-control bg-white',
-            'placeholder': 'Enter your password'
+            'placeholder': 'Enter your password',
+            'required': True,
+            'autofocus': True
         })
         self.fields['password2'].widget.attrs.update({
             'class': 'form-control bg-white',
-            'placeholder': 'Confirm your password'
+            'placeholder': 'Confirm your password',
+            'required': True,
+            'autofocus': True
         })
 
     def save(self, commit=True):
@@ -45,12 +49,17 @@ class UserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Enter your Username'
+            'class': 'form-control bg-white text dark',
+            'placeholder': 'Enter your Username',
+            'required': True,
+            'autofocus': True
+            
         })
         self.fields['password'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Enter your Username'
+            'class': 'form-control bg-white text dark',
+            'placeholder': 'Enter your Password',
+            'required': True,
+            'autofocus': True
         })
 
 class UserProfileForm(forms.ModelForm):

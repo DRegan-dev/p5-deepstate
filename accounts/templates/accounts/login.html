@@ -13,7 +13,7 @@
                         <form action="{% url 'accounts:login' %}" method="post">
                             {% csrf_token %}
                             <div class="mb-3">
-                                {{ form.username|add_class:"form-control bg-white text-dark"|attr:"placeholder:Username" }}
+                                {{ form.username }}
                                 {{ form.username.errors }}
                             </div>
 
