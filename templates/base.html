@@ -9,6 +9,35 @@
         <meta name="description" content="Deepstate - Your Premium product store">
         <meta name="keywords" content="products, shopping, DeepState">
         <meta rel="canonical" href="{% url 'home' %}">
+        <meta name="description" content="{{ view.seo_description|default:"DeepState - Your Premium product store. Shop our collection of high-quality products with fast shipping and excellent customer service." }}">
+        <meta name="keywords" content="{{ view.seo_keywords|default:"products, shopping, DeepState, premium products, online store, e-commerce" }}">
+        <meta name="author" content="DeepState">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="{{ view.seo_title|default:"DeepState" }}">
+        <meta property="og:description" content="{{ view.seo_description|default:"DeepState - Your Premium product store" }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ request.build_absolute_uri }}">
+        <meta property="og:image" content="{% static 'images/logo.png' %}">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ view.seo_title|default:"DeepState" }}">
+        <meta name="twitter:description" content="{{ view.seo_description|default:"DeepState - Your Premium product store" }}">
+        <meta rel="canonical" href="{{ request.build_absolute_uri }}">
+        
+        <!-- Schema.org markup -->
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "DeepState",
+            "url": "{{ request.build_absolute_uri }}",
+            "logo": "{% static 'images/logo.png' %}",
+            "sameAs": [
+                "https://www.facebook.com/yourpage",
+                "https://www.instagram.com/yourpage",
+                "https://twitter.com/yourpage"
+            ]
+        }
+        </script>
         {% endblock %}
 
         {% block extra_meta %}

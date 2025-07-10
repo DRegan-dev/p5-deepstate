@@ -1,6 +1,41 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% block extra_meta %}
+    <meta name="description" content="{{ product.description|truncatewords:20 }} - Buy {{ product.name }} at DeepState. High-quality {{ product.category.name }} with fast shipping and excellent customer service.">
+    <meta name="keywords" content="{{ product.name }}, {{ product.category.name }}, {{ product.keywords|default:"" }}, DeepState, premium products, online shopping">
+    <meta property="og:title" content="{{ product.name }} - {{ product.category.name }} | DeepState">
+    <meta property="og:description" content="{{ product.description|truncatewords:20 }} - Buy {{ product.name }} at DeepState. High-quality {{ product.category.name }} with fast shipping and excellent customer service.">
+    <meta property="og:image" content="{{ product.image.url }}">
+    <meta property="og:type" content="product">
+    
+    <!-- Schema.org Product Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "name": "{{ product.name }}",
+        "image": "{{ product.image.url }}",
+        "description": "{{ product.description }}",
+        "brand": {
+            "@type": "Brand",
+            "name": "DeepState"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "{{ product.price }}",
+            "priceValidUntil": "{{ product.date_added|date:'Y-m-d'|add:'365' }}",
+            "itemCondition": "http://schema.org/NewCondition",
+            "availability": "http://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "name": "DeepState"
+            }
+        }
+    }
+    </script>
+{% endblock %}
 
 {% block page_header %}
     <div class="container header-container">
