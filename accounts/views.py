@@ -12,21 +12,19 @@ from .forms import UserRegistrationForm, UserLoginForm, UserProfileForm
 # Create your views here.
 def login_view(request):
     if request.method == 'POST':
-        print(f"=== POST DATA ===")
-        print(f"Raw POST data: {request.POST}")
         form = UserLoginForm(data=request.POST)
         
         print(f'Form errors: {form.errors}')
 
         if form.is_valid():
-            user.backend = 'django.contrib.auth.backends.ModelBackend'
-            print("Form is valid atempting login")
-            print(f'Form data: { form.cleaned_data if form.is_bound else "Not Bound"}')
             user = form.get_user()
-            login(request, user)
-            print(f"User {user.username} successfully logged in")
-            messages.success(request, f"Welcome back, {user.username}")
-            return redirect('home')
+            if user in not None:
+                user.backend = 'django.contrib.auth.backends.ModelBackend'
+                login(request, user, 'django.contrib.auth.backends.ModelBackend')
+                messages.success(request, f"Welcome back, {user.username}")
+                return redirect('home')
+            else:
+                messages.error(request, 'Invalid login credentials')
         else:
             messages.error(request, 'Invalid username or password')
     else:
