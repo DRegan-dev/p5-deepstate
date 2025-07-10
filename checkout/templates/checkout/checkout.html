@@ -67,10 +67,10 @@
                         <div class="form-group mb-4 w-100">
                             <h6>Personal Details</h6>
                             <div class="mb-3">
-                                {{ order_form.full_name|add_class:"form-control bg-white"|attr:"placeholder:Full Name" }}
+                                {{ order_form.full_name|add_class:"form-control bg-white text-dark"|attr:"placeholder:Full Name" }}
                             </div>
                             <div class="mb-3">
-                                {{ order_form.email|add_class:"form-control bg-white"|attr:"placeholder:Email" }}
+                                {{ order_form.email|add_class:"form-control bg-white text-dark"|attr:"placeholder:Email" }}
                             </div>
                         </div>
 
@@ -79,26 +79,26 @@
                             <h6>Delivery Information</h6>
 
                             <div class="mb-3">
-                                {{ order_form.phone_number|add_class:"form-control bg-white"|attr:"placeholder:Phone Number" }}
+                                {{ order_form.phone_number|add_class:"form-control bg-white text-dark"|attr:"placeholder:Phone Number" }}
                             </div>
                             
                             <div class="mb-3">
-                                {{ order_form.country|add_class:"form-control bg-white"|attr:"placeholder:Country" }}
+                                {{ order_form.country|add_class:"form-control bg-white text-dark"|attr:"placeholder:Country" }}
                             </div>
                             <div class="mb-3">
-                                {{ order_form.postcode|add_class:"form-control bg-white"|attr:"placeholder:Postcode" }}
+                                {{ order_form.postcode|add_class:"form-control bg-white text-dark"|attr:"placeholder:Postcode" }}
                             </div>
                             <div class="mb-3">
-                                {{ order_form.town_or_city|add_class:"form-control bg-white"|attr:"placeholder:City, Town..." }}
+                                {{ order_form.town_or_city|add_class:"form-control bg-white text-dark"|attr:"placeholder:City, Town..." }}
                             </div>
                             <div class="mb-3">
-                                {{ order_form.street_address1|add_class:"form-control bg-white"|attr:"placeholder:Street Address 1" }}
+                                {{ order_form.street_address1|add_class:"form-control bg-white text-dark"|attr:"placeholder:Street Address 1" }}
                             </div>
                             <div class="mb-3">
-                                {{ order_form.street_address2|add_class:"form-control bg-white"|attr:"placeholder:Street Address 2" }}
+                                {{ order_form.street_address2|add_class:"form-control bg-white text-dark"|attr:"placeholder:Street Address 2" }}
                             </div>
                             <div class="mb-3">    
-                                {{ order_form.county|add_class:"form-control bg-white"|attr:"placeholder:County" }}
+                                {{ order_form.county|add_class:"form-control bg-white text-dark"|attr:"placeholder:County" }}
                             </div>    
                             {% if user.is_authenticated %}
                                 <div class="form-check mb-3">

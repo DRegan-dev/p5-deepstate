@@ -106,7 +106,8 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'checkout:checkout' %}" class="btn btn-dark rounded-0 btn-lg">
+
+                                    <a {% if not user.is_authenticated %} href="{% url 'accounts:login' %}" {% else %} href="{% url 'checkout:checkout' %}" {% endif %} class="btn btn-dark rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
