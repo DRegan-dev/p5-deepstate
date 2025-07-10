@@ -18,7 +18,7 @@ def login_view(request):
 
         if form.is_valid():
             user = form.get_user()
-            if user in not None:
+            if user is not None:
                 user.backend = 'django.contrib.auth.backends.ModelBackend'
                 login(request, user, 'django.contrib.auth.backends.ModelBackend')
                 messages.success(request, f"Welcome back, {user.username}")
