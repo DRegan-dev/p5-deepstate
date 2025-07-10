@@ -19,6 +19,7 @@ def login_view(request):
         print(f'Form errors: {form.errors}')
 
         if form.is_valid():
+            user.backend = 'django.contrib.auth.backends.ModelBackend'
             print("Form is valid atempting login")
             print(f'Form data: { form.cleaned_data if form.is_bound else "Not Bound"}')
             user = form.get_user()
@@ -43,6 +44,7 @@ def register_view(request):
         print(f"Form is valid: {form.is_valid()}")
         if form.is_valid():
             print('Form is valid - attempting to save user')
+            user.backend = 'django.contrib.auth.backends.ModelBackend'
             user = form.save()
             login(request, user)
             messages.success(request, 'Account created succesfully!')
