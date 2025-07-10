@@ -64,7 +64,6 @@ def checkout(request):
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                product_size=size,
                                 lineitem_total=product.price * quantity
                             )
                             order_line_item.save()
@@ -92,11 +91,25 @@ def checkout(request):
         else:
             messages.error(request, 'There was an error with your form. '
                         'Please double check your information.')
+            
+            current_basket = basket_contents(request)
+            template = 'checkout/checkout.html'
+            context = {
+                'order_form': order_form,
+                'stripe_public_key': stripe_public_key,
+                'client_secret': '',
+                'basket': current_basket,
+                'delivery': current_basket['delivery'],
+                'grand_total': current_basket['grand_total'],
+                'product_count': current_basket['products_count'],
+                'basket_items': current_basket['basket_items'],
+            }
+            return render(request, template, context)
     else:
         basket = request.session.get('basket', {})
         if not basket:
             messages.error(request, "There's nothing in your bag at the moment")
-            return redirect(reverse('products'))
+            return redirect(reverse('products:products'))
 
             
                     

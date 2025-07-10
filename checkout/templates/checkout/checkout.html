@@ -109,8 +109,8 @@
                                 </div>
                             {% else %}
                                 <p class="text-white">
-                                    <a href="{% url 'Register' %}" class="text-info">Create an account</a> or
-                                    <a href="{% url 'login' %}" class="text-info">Login</a> to save this information
+                                    <a href="{% url 'accounts:register' %}" class="text-info">Create an account</a> or
+                                    <a href="{% url 'accounts:login' %}" class="text-info">Login</a> to save this information
                                 </p>
                             {% endif %}
                         </div>
