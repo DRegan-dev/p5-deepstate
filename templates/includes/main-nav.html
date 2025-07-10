@@ -8,7 +8,6 @@
                 <a href="{% url 'products:products' %}?sort=price&direction=asc" class="dropdown-item text-white">By Price</a>
                 <a href="{% url 'products:products' %}?sort=rating&direction=desc" class="dropdown-item text-white">By Rating</a>
                 <a href="{% url 'products:products' %}?sort=category&direction=desc" class="dropdown-item text-white">By Category</a>
-                <a href="{% url 'products:products' %}" class="dropdown-item text-white">By Category</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -18,7 +17,6 @@
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
                 <a href="{% url 'products:products' %}?category=shoes" class="dropdown-item text-white">Shoes</a>
                 <a href="{% url 'products:products' %}?category=boots" class="dropdown-item text-white">Boots</a>
-                <a href="{% url 'products:products' %}?category=footwear, shoes, boots" class="dropdown-item text-white">All Footwear</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -36,7 +34,7 @@
                 Adventure
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{% url 'products:products' %}?category=adventure" class="dropdown-item">All Adventure Gear</a>
+                <a href="{% url 'products:products' %}?category=adventure" class="dropdown-item text-white">All Adventure Gear</a>
             </div>
         </li>
         <li class="nav-item dropdown">
