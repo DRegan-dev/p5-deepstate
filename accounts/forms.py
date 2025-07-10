@@ -7,7 +7,7 @@ class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField(
         required=True,
         widget=forms.EmailInput(attrs={
-            'class': 'form-control',
+            'class': 'form-control bg-white',
             'placeholder': 'Enter your Email'
         })
     )
@@ -15,21 +15,31 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+        widgets ={
+            'username': forms.TextInput(attrs={
+                'class': 'form-control bg-white',
+                'placeholder': 'Enter your username'
+            }),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Enter your Username'
-        })
+
         self.fields['password1'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Enter your Password'
+            'class': 'form-control bg-white',
+            'placeholder': 'Enter your password'
         })
         self.fields['password2'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Confirm your Password'
+            'class': 'form-control bg-white',
+            'placeholder': 'Confirm your password'
         })
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+        return user
 
 class UserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):

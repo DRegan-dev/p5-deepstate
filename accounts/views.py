@@ -6,24 +6,28 @@ from .models import UserProfile
 from checkout.models import Order
 from .forms import UserRegistrationForm, UserLoginForm, UserProfileForm
 from django.contrib.auth.decorators import login_required
-from .forms import UserProfileForm
+
 
 
 # Create your views here.
 def login_view(request):
     if request.method == 'POST':
-        form = UserLoginForm(request, data=request.POST)
-        if form.is_valid():
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            user = authenticate(request, username=username, password=password)
+        print(f"=== POST DATA ===")
+        print(f"Raw POST data: {request.POST}")
+        form = UserLoginForm(data=request.POST)
+        
+        print(f'Form errors: {form.errors}')
 
-            if user is not None:
-                login(request, user)
-                messages.success(request, 'Succesfully logged in!')
-                return redirect('home')
-            else:
-                messages.error(request, 'Invalid username or password')
+        if form.is_valid():
+            print("Form is valid")
+            print(f'Form data: { form.cleaned_data if form.is_bound else "Not Bound"}')
+            user = form.get_user()
+            user.backend = 'django.contrib.auth.backends.ModelBackend'
+            login(request, user)
+            messages.success(request, 'Successfully logged in!')
+            return redirect('home')
+        else:
+            messages.error(request, 'Invalid username or password')
     else:
         form = UserLoginForm()
 
@@ -31,12 +35,22 @@ def login_view(request):
 
 def register_view(request):
     if request.method == 'POST':
+        print("=== POST REQUEST RECEEIVED ===")
+        print(f"POST data: {request.POST}")
+
         form = UserRegistrationForm(request.POST)
+        print(f"Form is valid: {form.is_valid()}")
         if form.is_valid():
+            print('Form is valid - attempting to save user')
             user = form.save()
+            user.backend = 'django.contrib.auth.backends.ModelBackend'
             login(request, user)
             messages.success(request, 'Account created succesfully!')
             return redirect('home')
+        else:
+            print(f"Form is NOT valid. Errors: {form.errors}")
+            print(f"Form non=field errors: {form.non_field_errors()}")
+            messages.error(request, 'Please correct the errors below.')
     else:
         form = UserRegistrationForm()
 
