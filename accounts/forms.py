@@ -72,7 +72,7 @@ class UserLoginForm(AuthenticationForm):
                 username=username,
                 password=password
             )
-            if self user_cache is None:
+            if self.user_cache is None:
                 raise self.get_invalid_login_error()
             else:
                 self.confirm_login_allowed(self.user_cache)

@@ -72,7 +72,7 @@ def profile(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
-        print(f'post request received')
+        
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
