@@ -154,6 +154,11 @@
             const csrfToken = "{{ csrf_token }}";
             const itemId = this.id.split('remove_')[1];
             const size = this.dataset.size;
+            const productName =this.getAttribute('aria-label').split('Remove')[1].split(' from basket')[0];
+
+            if (!confirm(`Are you sure you want to remove ${productName} from your basket?`))
+
+
             console.log('Attempting')
             const url = "{% url 'basket:remove_from_basket' '0' %}".replace('0', itemId)
             console.log('URL:', url);
