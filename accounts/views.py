@@ -8,7 +8,7 @@ from .forms import UserRegistrationForm, UserLoginForm, UserProfileForm
 from django.contrib.auth.decorators import login_required
 
 
-
+class
 # Create your views here.
 def login_view(request):
     if request.method == 'POST':
@@ -22,7 +22,6 @@ def login_view(request):
             print("Form is valid atempting login")
             print(f'Form data: { form.cleaned_data if form.is_bound else "Not Bound"}')
             user = form.get_user()
-            user.backend = 'django.contrib.auth.backends.ModelBackend'
             login(request, user)
             print(f"User {user.username} successfully logged in")
             messages.success(request, f"Welcome back, {user.username}")
@@ -45,7 +44,6 @@ def register_view(request):
         if form.is_valid():
             print('Form is valid - attempting to save user')
             user = form.save()
-            user.backend = 'django.contrib.auth.backends.ModelBackend'
             login(request, user)
             messages.success(request, 'Account created succesfully!')
             return redirect('home')
