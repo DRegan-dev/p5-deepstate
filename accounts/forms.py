@@ -78,7 +78,7 @@ class UserLoginForm(AuthenticationForm):
                 self.confirm_login_allowed(self.user_cache)
         return self.cleaned_data
     
-    def confirm_
+
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
