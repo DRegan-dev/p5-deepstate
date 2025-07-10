@@ -12,7 +12,7 @@ def add_to_basket(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     size = None
     if 'product_size' in request.POST:
-        size = request.POST[product_size]
+        size = request.POST['product_size']
     basket = request.session.get('basket', {})
 
    
@@ -26,16 +26,19 @@ def add_to_basket(request, item_id):
             basket[item_id] = {'items_by_size': {size: quantity}}
     else:
         if item_id in basket:
-            basket[item_id] += quantity
+            if 'default' in basket[item_id]['items_by_size']:
+                basket[item_id]['items_by_size']['default'] += quantity
+            else:
+                basket[item_id]['items_by_size']['default'] = quantity
         else:
-            basket[item_id] = quantity
+            basket[item_id] = {'items_by_size': {'default': quantity}}
 
     request.session['basket'] = basket 
     print(request.session['basket'])
 
     print(f'Added/updated product {item_id}, quantity: {quantity}. Basket now contains: {basket}')
 
-    return redirect(redirect_url)
+    return redirect('basket:view_basket')
 
 def adjust_basket(request, item_id):
     """ Adjust the quantity of the specified product to the specified amount """

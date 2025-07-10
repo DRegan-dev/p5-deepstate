@@ -29,7 +29,7 @@ def admin_dashboard(request):
         if action == 'update_categories':
             return handle_category_update_ajax(request)
     
-    if request.method == 'POST' and request.POst.get('action') == 'update_categories':
+    if request.method == 'POST' and request.POST.get('action') == 'update_categories':
         return handle_category_update(request)
          
 
