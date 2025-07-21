@@ -111,19 +111,17 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
-        document.querySelector('.btt-link').addEventListener('click', function() {
-            window.scrollTo(0, 0);
-        });
-    </script>
-    <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             console.log("Dom fully loaded - starting script execution");
+
             const bttLink = document.querySelector('.btt-link');
             if (bttLink) {
                 bttLink.addEventListener('click', function(e) {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: 'smooth'});
                 });
+            } else {
+                console.warn("Back to top link not found in the DOM");
             }
 
             const sortSelector = document.getElementById('sortSelector');
@@ -144,7 +142,7 @@
                     window.location.href = currentUrl.toString();
                 });
             } else {
-                console.error("Sort selector not found in the DOM");
+                console.warn("Sort selector not found in the DOM");
             }
         });
     </script>
