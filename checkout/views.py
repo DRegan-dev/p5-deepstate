@@ -45,6 +45,11 @@ def checkout(request):
             client_secret = request.POST.get('client_secret','')
             order.stripe_pid = client_secret.split('_secret')[0] if '_secret' in client_secret else ''
 
+            print(f"country from form: '{form_data['country']}'")
+            print(f"country length: (len(form_data['country']))")
+            print(f"country from form:'{form_data['county']}'")
+            print(f"county length: {len(form_data['county'])}")
+
             order.save()
 
             for item_id, item_data in basket.items():
