@@ -3,9 +3,6 @@
 {% load static %}
 
 {% block extra_css %}
-<script>
-    document.body.classList.add('gradient-only');
-</script>
 {% endblock %}
 
 {% block page_header %}
@@ -110,6 +107,12 @@
 
 {% block postloadjs %}
     {{ block.super }}
+    <script>
+        if (documentt.body) {
+            document.body.classList.add('gradient-only');
+        }
+        
+    </script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             console.log("Dom fully loaded - starting script execution");
