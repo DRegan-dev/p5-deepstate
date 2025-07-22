@@ -88,6 +88,8 @@ def checkout(request):
                 profile.default_street_address1 = order.street_address1
                 profile.default_street_address2 = order.street_address2
                 profile.default_county = order.county
+
+                print(f"saving profile.default_country: '{profile.default_country}'")
                 profile.save()
 
                 
