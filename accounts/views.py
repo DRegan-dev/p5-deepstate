@@ -42,8 +42,8 @@ def register_view(request):
         print(f"Form is valid: {form.is_valid()}")
         if form.is_valid():
             print('Form is valid - attempting to save user')
-            user.backend = 'django.contrib.auth.backends.ModelBackend'
             user = form.save()
+            user.backend = 'django.contrib.auth.backends.ModelBackend'
             login(request, user)
             messages.success(request, 'Account created succesfully!')
             return redirect('home')
