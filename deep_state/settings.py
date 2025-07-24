@@ -131,15 +131,13 @@ WSGI_APPLICATION = 'deep_state.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-    WHITENOISE_USE_FINDERS = True
-    WHITENOISE_AUTOREFRESH = True
-    WHITENOISE_STATIC_PREFIX = '/static/'
+STATICFILES_DIRS = [
+     os.path.join(BASE_DIR, 'static'),
+]
 
-    if 'USE_AWS' in os.environ:
+USE_AWS = os.environ.get('USE_AWS', '0') == '1'
+
+if 'USE_AWS' in os.environ:
         AWS_ACCESS_KEY_ID =os.environ.get('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
         AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
@@ -154,7 +152,19 @@ if 'DATABASE_URL' in os.environ:
         MEDIAFILES_LOCATION = 'media'   
         MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
+        print("Static files dirs:")
+        for dir in STATICFILES_DIRS:
+             print(f"- {dir}")
 
+
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+    WHITENOISE_USE_FINDERS = True
+    WHITENOISE_AUTOREFRESH = True
+    WHITENOISE_STATIC_PREFIX = '/static/'
 
 else: 
     DATABASES = {
