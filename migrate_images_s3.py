@@ -25,9 +25,7 @@ def migrate_images_to_s3():
                 s3_client.upload_fileobj(
                     image_file,
                     settings.AWS_STORAGE_BUCKET_NAME,
-                    s3_key,
-                    ExtraArgs={'ACL': 'public-read'}
-    
+                    s3_key   
                 )
             print(f'uploaded {image_field.name} to s3')
         except Exception as e:
